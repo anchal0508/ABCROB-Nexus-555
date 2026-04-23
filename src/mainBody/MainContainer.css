@@ -1,0 +1,8 @@
+.middle-body{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    row-gap: 25px;
+}

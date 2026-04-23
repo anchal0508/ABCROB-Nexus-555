@@ -1,0 +1,36 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    background-color: rgb(6, 19, 61);
+    gap: 50%;
+    padding: 20px;
+    color: whitesmoke;
+    font-family: sans-serif;
+
+}
+.logo{
+    display: flex;
+    font-size: 25px;
+}
+.logo-555{
+    color: orangered;
+    margin-left: 5px;
+}
+.list-header {
+    display: flex;
+    gap: 30px;
+}
+
+.header-list-items {
+    display: flex;
+    text-decoration: none;
+    
+    
+}
