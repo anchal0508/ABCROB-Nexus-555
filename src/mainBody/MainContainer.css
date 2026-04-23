@@ -6,3 +6,23 @@
     align-items: center ;
     row-gap: 25px;
 }
+.score-banner{
+    width: 100%;
+    background-color: rgb(6, 19, 61);;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+.score-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.score-banner h2{
+    color: orangered;
+    padding: 10px;
+
+}
