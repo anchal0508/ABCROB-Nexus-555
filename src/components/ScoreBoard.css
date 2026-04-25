@@ -1,0 +1,18 @@
+.score-banner {
+    display: flex;
+    background-color: #1a1861;
+    /* padding: 10px 220px; */
+    justify-content: center;
+    gap: 50px;
+    color: whitesmoke;
+    align-items: center;
+}
+
+.score-item{
+    text-align: center;
+    padding: 10px;
+}
+.score-item h2{
+    color: orange;
+    font-size: 40px;
+}
