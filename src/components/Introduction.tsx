@@ -1,5 +1,5 @@
 import "./Introduction.css";
-import ProfileImage from "../Images/ProfileImage.jpeg";
+import ProfileImage2 from "../Images/ProfileImage2.jpeg";
 
 function Introduction() {
     return (<>
@@ -17,7 +17,7 @@ function Introduction() {
 
             </div>
             <div className="photo">
-                <img src={ProfileImage} width="200" height="220" alt="" />
+                <img src={ProfileImage2} width="300" height="220" alt="" />
             </div>
         </div>
     </>);
