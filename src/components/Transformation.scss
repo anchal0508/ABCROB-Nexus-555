@@ -1,0 +1,30 @@
+.home-heading{
+    text-align: center;
+    color: darkblue;
+    font-size: 45px;
+    padding: 40px;
+}
+
+.jureny-555-main {
+    color: darkblue;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding: 50px;
+    align-items: center;
+
+    .details-555 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+
+      
+        p {
+            text-align: left;
+            font-size: 20px;
+            padding: 15px;
+        }
+    }
+
+}

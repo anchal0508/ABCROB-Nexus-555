@@ -1,6 +1,7 @@
 import "./MainContainer.css";
 import Introduction from "../components/Introduction";
 import ScoreBoard from "../components/ScoreBoard";
+import Transformation from "../components/Transformation";
 
 function MainContainer() {
 
@@ -10,8 +11,7 @@ function MainContainer() {
                 <Introduction />
 
                 <ScoreBoard />
-
-                <h2>The 555 Transformation Journey</h2>
+                <Transformation />
                 <h2> Verified Proof of Work </h2>
                 <h2> Featured Technical Repos </h2>
 
