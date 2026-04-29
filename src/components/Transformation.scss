@@ -5,7 +5,7 @@
     padding: 40px;
 }
 
-.jureny-555-main {
+.journey-555-main {
     color: darkblue;
     display: flex;
     gap: 50px;
@@ -24,6 +24,25 @@
             text-align: left;
             font-size: 20px;
             padding: 15px;
+        }
+    }
+    .googleMap{
+        display: flex;
+        gap: 5px;
+        .img-textBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .imgText{
+                font-size: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            img{
+                width: 250px;
+                height: 450px;
+            }
         }
     }
 

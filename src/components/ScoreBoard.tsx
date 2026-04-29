@@ -8,7 +8,7 @@ function ScoreBoard() {
                     <h2>55555+</h2>
                     <p>Student Trained</p>
                 </div> <div className="score-item">
-                    <h2>26+</h2>
+                    <h2>300+</h2>
                     <p>Collage Impacted</p>
                 </div> <div className="score-item">
                     <h2>10+</h2>
