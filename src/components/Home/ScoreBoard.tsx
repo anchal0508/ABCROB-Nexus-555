@@ -1,4 +1,3 @@
-import "./ScoreBoard.css";
 
 function ScoreBoard() {
     return (

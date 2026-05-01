@@ -1,0 +1,27 @@
+@use "./abstracts/var";   // coloring using variables
+@use "./abstracts/mixins"; // responsive breakpoints
+
+
+@use "./components/buttons";
+@use "./components/cards";
+@use "./components/navbar";
+
+@use "./pages/home/header";
+
+
+@use "./pages/home/introduction";
+@use "./pages/home/score-board";
+@use "./pages/home/momentos";
+@use "./pages/home/glimps";
+@use "./pages/home/projects";
+@use "./pages/home/transformation";
+@use "./pages/home/verified-proof";
+
+
+
+@use "./pages/home/footer";
+
+
+
+
+

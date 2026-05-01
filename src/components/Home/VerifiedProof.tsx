@@ -1,12 +1,11 @@
-import "./VerifiedProof.scss";
-import ProfileImage from "../Images/ProfileImage.jpeg";
+import ProfileImage from "../../Images/ProfileImage.jpeg";
 
 interface TileIteam {
     id: number;
     title: String;
     subHeading?:String;
     desc: String;
-    image: String;
+    image: String; 
 };
 
 const proofData: TileIteam[] = [

@@ -1,12 +1,16 @@
-.home-heading{
-    text-align: center;
-    color: darkblue;
-    font-size: 45px;
-    padding: 40px;
+@use "../../abstracts/var";
+
+#transformation-journey {
+
+    .home-heading {
+        text-align: center;
+        font-size: 45px;
+        padding: 40px;
+    }
 }
 
+
 .journey-555-main {
-    color: darkblue;
     display: flex;
     gap: 50px;
     justify-content: center;
@@ -19,27 +23,31 @@
         justify-content: center;
         width: 50%;
 
-      
+
         p {
             text-align: left;
             font-size: 20px;
             padding: 15px;
         }
     }
-    .googleMap{
+
+    .googleMap {
         display: flex;
         gap: 5px;
-        .img-textBox{
+
+        .img-textBox {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            .imgText{
+
+            .imgText {
                 font-size: 25px;
                 font-weight: bold;
                 text-transform: uppercase;
             }
-            img{
+
+            img {
                 width: 250px;
                 height: 450px;
             }

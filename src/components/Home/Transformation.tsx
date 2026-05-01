@@ -1,7 +1,6 @@
-import "./Transformation.scss";
 
-import places_visited from "../Images/places_visited.jpeg";
-import cities_visited from "../Images/cities_visited.jpeg";
+import places_visited from "../../Images/places_visited.jpeg";
+import cities_visited from "../../Images/cities_visited.jpeg";
 function Transformation() {
     return (
         <section id="transformation-journey">

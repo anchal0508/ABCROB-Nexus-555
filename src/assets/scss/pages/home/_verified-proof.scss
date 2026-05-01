@@ -1,8 +1,14 @@
+@use "../../abstracts/var";
+
 .verified-proof-container {
     padding: 50px 20px;
     text-align: center;
 
-    .home-heading {}
+    .home-heading {
+        text-align: center;
+        font-size: 45px;
+        padding: 40px;
+    }
 
     .proof-grid {
         display: grid;
@@ -12,14 +18,14 @@
 
         .proof-card {
 
-            background-color: #fff;
+            background-color: var.$card-color;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-
+            
             &:hover {
                 transform: translateY(-10px); // Hover effect
+                box-shadow: 0 4px 15px var.$success-status;
             }
 
             .img-wrapper {
@@ -46,7 +52,7 @@
 
                 p {
                     font-size: 14px;
-                    color: #555;
+                  
                 }
             }
         }
