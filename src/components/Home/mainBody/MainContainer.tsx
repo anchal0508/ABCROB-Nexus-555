@@ -3,7 +3,6 @@ import ScoreBoard from "../ScoreBoard";
 import Transformation from "../Transformation";
 import VerifiedProof from "../VerifiedProof";
 import Projects from "../Projects";
-import Momentos from "../Momentos";
 import Glimps from "../Glimps";
 function MainContainer() {
 
@@ -13,7 +12,6 @@ function MainContainer() {
             <Introduction />
 
             <ScoreBoard />
-            <Momentos/>
             <Transformation />
             <Glimps/>
             <VerifiedProof/>

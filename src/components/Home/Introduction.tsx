@@ -1,8 +1,12 @@
 import ProfileImage2 from "../../Images/ProfileImage2.jpeg";
+import momento from "../../Images/momento.png";
 
 function Introduction() {
     return (<>
         <div className="outer-container">
+            <div className="momento">
+                <a href={momento} target="_blank"><img src={momento} alt="Momentos during Collage Workshops" /></a>
+            </div>
             <div className="profile">
 
                 <p className="legacy">LEGACY TRANSFORMATION</p>

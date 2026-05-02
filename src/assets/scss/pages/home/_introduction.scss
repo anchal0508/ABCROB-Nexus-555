@@ -3,11 +3,20 @@
 
 .outer-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 380px auto auto;
     padding: 50px;
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+
+    .momento {
+        width: 350px;
+        border: 10px solid var.$success-status;
+        border-radius: 10px;
+        img{
+            width: 100%;
+        }
+    }
 
     .profile {
         display: flex;
@@ -23,6 +32,9 @@
             border-radius: 15px;
             width: fit-content;
             font-size: 12px;
+            &:hover{
+                color: var.$success-status;
+            }
         }
 
         .name {
@@ -59,7 +71,7 @@
                 border: 2px solid darkblue;
                 cursor: pointer;
                 font-size: 15px;
-                
+
                 &:hover {
                     background-color: orange;
                     border: 2px solid orange;
