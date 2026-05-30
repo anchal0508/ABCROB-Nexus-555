@@ -14,6 +14,14 @@ function Header() {
             <ul className="list-header">
                 {items.map(item => <li className="header-list-items">{item}</li>)}
             </ul>
+            <select name="webSwitch" id="webSwitch">
+                <option value= "portfolio"> MySelf </option>
+                <option value= "Suits"> Suits </option>
+                <option value= "saree"> Saree </option>
+                <option value= "makeup"> Make-Up </option>
+                <option value= "projects"> Projects </option>
+                <option value= "components"> Electronic Components </option>
+            </select>
         </header>
     );
 }

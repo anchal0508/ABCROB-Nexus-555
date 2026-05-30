@@ -1,24 +1,15 @@
-@use "sass:map";
+@use 'sass:map';
 @use "../../abstracts/var";
 
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: var.$font-body;
-    color: var.$body-text;
-    background-color: var.$main-background;
-}
 
 h1 {
     font-family: var.$heading-icons;
     font-weight: 700;
     letter-spacing: -0.02em; // Modern tight look
+
 }
 
 p {
@@ -32,19 +23,22 @@ p {
 
 
 .header-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     background-color: map.get(var.$theme-colors, "background");
     display: flex;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
     align-items: center;
     padding: 0 40px;
-    position: fixed;
-    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 9999;
 
     .logo {
 
         .logo-555 {
-            color: map.get($map: var.$theme-colors, $key: "primary");
+            color: map.get(var.$theme-colors, "primary");
         }
     }
 
@@ -55,10 +49,28 @@ p {
 
         .header-list-items {
             list-style-type: none;
+            padding: 10px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 15px;
+            transition: transform 0.5s ease;
+            &:hover {
+                color: var.$color-secondary;
+                transform: perspective(1000px) translate3d(0, -5px, 60px) rotateX(5deg);
+            }
         }
 
+    }
+
+    select {
+        background-color: var.$main-background;
+        color: var.$body-text;
+        border-radius: 16px;
+        font-size: 15px;
+
+        &:hover {
+            color: var.$color-secondary;
+            // transform: perspective(1000px) translate3d(0, -5px, 60px) rotateX(5deg);
+        }
     }
 
 }

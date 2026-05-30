@@ -21,6 +21,21 @@
 @use "./pages/home/footer";
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: var.$font-body;
+    color: var.$body-text;
+    background-color: var.$main-background;
+    scroll-snap-type: y mandatory; // Y-axis (vertical) scroll ko mandatory snap karega
+    overflow-y: scroll;
+    height: 100vh;
+
+    overflow-x: hidden;
+}
 
 

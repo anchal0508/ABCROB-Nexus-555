@@ -1,45 +1,119 @@
+@use "../../abstracts/var";
+
+:root {
+    --cards: 3;
+    --cardHeight: 87vh;
+    --cardTopPadding: 1.5em;
+    /* Har card ke bich ka space jo upar se dikhega */
+    --cardMargin: 4vw;
+}
+
 .project-container {
     padding: 50px;
     text-align: center;
+
 
     .home-heading {
         text-align: center;
         font-size: 45px;
         padding: 40px;
+        color: var.$heading-icons;
     }
 
     .project-grid {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        text-align: center;
-        gap: 30px 50px;
+        grid-template-columns: 1fr;
+        /* Rows ka sizing background control karta hai */
+        grid-template-rows: repeat(var(--cards), var(--cardHeight));
+        gap: var(--cardMargin);
+        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+        margin-bottom: var(--cardMargin);
 
+        /* CRITICAL FIX: Sticky position humesha us container par honi chahiye 
+           jo seedhe grid-item hai. Aapka grid item '.tile-link' hai! */
         .tile-link {
             text-decoration: none;
             color: inherit;
-        }
+            display: block;
+            /* Poora element clickable aur trackable banane ke liye */
+
+            position: sticky;
+            top: 0;
+            /* Jab scroll top par pahunchega toh ye ruk jayega */
+            height: var(--cardHeight);
+
+            /* Har card ke dynamic index ke hisab se top se extra padding generate hogi */
+            &#card1 {
+                --index: 1;
+                padding-top: calc(var(--index) * var(--cardTopPadding));
 
 
-        .tile-box {
-            padding: 20px;
-            border-radius: 12px;
-            background-color: #fff;
-            /* 1. Slow and smooth transition */
-            /* cubic-bezier se motion 'premium' lagta hai */
-            transition: transform 0.9s cubic-bezier(0.2, 1, 0.3, 1),
-                box-shadow 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-
-            /* 2. Hardware Acceleration trigger */
-            will-change: transform;
-            backface-visibility: hidden;
-
-            &:hover {
-                transform: perspective(1000px) translate3d(0, -15px, 60px) rotateX(2deg);
-                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             }
 
-            img {
-                width: 100px;
+            &#card2 {
+                --index: 2;
+                padding-top: calc(var(--index) * var(--cardTopPadding));
+
+
+            }
+
+            &#card3 {
+                --index: 3;
+                padding-top: calc(var(--index) * var(--cardTopPadding));
+
+
+            }
+
+            /* Main Card Layout Styles */
+            .card {
+                background-color: var.$main-background;
+                height: 100%;
+                border-radius: 24px;
+                box-shadow: 0 -10px 30px var.$success-status;
+                /* Overlapping shadow effect */
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 2em;
+                box-sizing: border-box;
+
+                /* Yeh smooth transition background and animation ke liye hai */
+                transition: transform 0.3s ease;
+            }
+
+            /* Inner items styling */
+            .image-box {
+                width: 80%;
+                max-width: 400px;
+                height: 250px;
+                overflow: hidden;
+                border-radius: 12px;
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .tile-heading.orange {
+                color: var.$heading-icons;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .description {
+                font-size: 16px;
+                color: var.$body-text;
+                max-width: 600px;
+                line-height: 1.6;
             }
         }
     }

@@ -1,18 +1,37 @@
 @use "sass:map";
 @use "../../abstracts/var";
 
+ 
+
+@keyframes moveRotate{
+    from{
+        transform: translateX(-80vw) rotate(0deg);
+
+    }
+    to{
+        transform: translateX(1vw) rotate(360deg);
+    }
+}
+
 .outer-container {
+
+    min-height: 100vh;
+    margin-top: 40px;
     display: grid;
-    grid-template-columns: 380px auto auto;
+    grid-template-columns: 450px auto auto;
     padding: 50px;
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
 
+    .introbox{
+        animation: moveRotate 1s ease-in;
+    }
     .momento {
-        width: 350px;
+        width: 410px;
         border: 10px solid var.$success-status;
         border-radius: 10px;
+             
         img{
             width: 100%;
         }
@@ -22,18 +41,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 10px;
         gap: 20px;
-
+ 
         .legacy {
-            background-color: orange;
-            color: white;
+            margin-top: 20px;
+            background-color: var.$color-primary;
+            color: var.$heading-icons;
             padding: 10px;
             font-weight: bolder;
             border-radius: 15px;
             width: fit-content;
             font-size: 12px;
+             transition: color 0.5s ease;
             &:hover{
-                color: var.$success-status;
+                color: var.$main-background;
+                font-weight: bold;
             }
         }
 
@@ -71,11 +94,13 @@
                 border: 2px solid darkblue;
                 cursor: pointer;
                 font-size: 15px;
-
+                transition: background-color 0.6s ease, border-color 1.2s ease, color 1.5s ease;
                 &:hover {
                     background-color: orange;
                     border: 2px solid orange;
-                    font-size: 18px;
+                    color: var.$main-background;
+                    font-weight: bold;
+                    // font-size: 18px;
                 }
             }
 
@@ -97,6 +122,7 @@
 
         img {
             border-radius: 50%;
+            box-shadow: 0px 15px 15px var.$success-status;
         }
     }
 }
