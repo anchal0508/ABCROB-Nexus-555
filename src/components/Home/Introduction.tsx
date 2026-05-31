@@ -2,6 +2,9 @@ import ProfileImage2 from "../../Images/ProfileImage2.jpeg";
 import momento from "../../Images/momento.png";
 
 function Introduction() {
+
+
+    
     return (<>
         <div className="outer-container">
             <div className="momento introbox">

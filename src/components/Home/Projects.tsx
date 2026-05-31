@@ -28,10 +28,10 @@ const Projects: React.FC = () => {
                             <div className="image-box">
                                 <img src={item.image || places_visited} alt={item.title?.toString()} />
                             </div>
-                            <h2 className="tile-heading orange">{item.title}</h2>
-                            <div className="description">
+                            <h3 className="tile-heading orange">{item.title}</h3>
+                            <p className="description">
                                 {item.desc}
-                            </div>
+                            </p>
                         </div>
 
                     </a>
