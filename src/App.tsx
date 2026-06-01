@@ -6,6 +6,7 @@ import './styles/main.scss';
 import PortfolioHome from './sites/1-portfolio/homePage/PortfolioHome';
 import Gallery from './sites/1-portfolio/gallery';
 import Certificates from './sites/1-portfolio/certificates';
+import ClassHome from './sites/7-online-classes/ClassHome';
 
 import SareeHome from './sites/2-saree/SareeHome';
 // import ShuitHome from './sites/3-suit/ShuitHome';
@@ -44,6 +45,8 @@ function App() {
         <Route path="/" element={<PortfolioHome />} />
         <Route path="/portfolio-galary" element={<Gallery />} />
         <Route path="/portfolio-certificates" element={<Certificates />} />
+        <Route path="/online-classes" element={<ClassHome />} />
+
 
 
 
