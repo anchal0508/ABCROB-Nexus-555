@@ -1,0 +1,124 @@
+@use "../../abstracts/variables";
+
+
+@keyframes appearTransform {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+@keyframes leftRotate {
+    from {
+        opacity: 0;
+        transform: translateX(-600px) rotate(360deg) scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes rightRotate {
+    from {
+        opacity: 0;
+        transform: translateX(600px) rotate(-360deg) scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px) rotate(0deg) scale(1);
+    }
+}
+
+
+#transformation-journey {
+
+    height: 100vh;
+
+    .home-heading {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 40px;
+        padding: 20px;
+
+        animation: appearTransform linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+
+    .journey-555-main {
+
+        display: flex;
+
+        justify-content: space-around;
+        padding: 20px;
+        align-items: center;
+
+
+
+        .details-555 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 40%;
+            padding: 20px;
+            height: 100%;
+
+            animation: leftRotate linear both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 35%;
+
+
+
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4.2px);
+            -webkit-backdrop-filter: blur(4.2px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+
+            p {
+                text-align: left;
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+
+        .googleMap {
+            display: flex;
+            gap: 20px;
+
+            .img-textBox {
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+
+                animation: rightRotate linear both;
+                animation-timeline: view();
+                animation-range: entry 0% cover 35%;
+
+                .imgText {
+                    font-size: 25px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                img {
+                    width: 280px;
+                    height: 450px;
+
+                }
+            }
+        }
+
+    }
+}

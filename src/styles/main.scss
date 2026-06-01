@@ -1,0 +1,37 @@
+// ==========================================
+// 1. CORE CONFIGS & UTILITIES (No CSS output)
+// ==========================================
+// @use "./abstracts/_variables";
+@use "./abstracts/mixins";
+@use "./abstracts/functions";
+
+// ==========================================
+// 2. THEMES CONFIGURATION (CSS Variables Injection)
+// ==========================================
+// Har ek individual theme file ke andar apna alag data-theme selector hoga.
+// Jaise: `themes/_saree.scss` ke andar aap :root[data-theme="saree"] likhenge.
+@use "./theams/portfolio/portfolioMain";
+
+@use './theams/saree';
+@use './theams/suit';
+@use './theams/beauty';
+@use './theams/_college-proj';
+@use './theams/_components';
+@use './theams/_classes';
+
+// ==========================================
+// 3. BASE & CORE STYLES (Global Styles)
+// ==========================================
+@use './core/_reset';
+@use './core/_typography';
+@use './core/_grid';
+
+// ==========================================
+// 4. GLOBAL COMPONENTS (Written once, styles adapt dynamically)
+// ==========================================
+@use './components/_navbar';
+@use './components/_buttons';
+@use './components/_cards';
+@use './components/_forms';
+@use './components/footer';
+@use './components/_gallery';

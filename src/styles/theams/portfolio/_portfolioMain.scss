@@ -1,0 +1,58 @@
+@use "../../abstracts/variables" as variable;
+
+
+@use "./header";
+@use "./introduction";
+@use "./score-board";
+@use "./glimps";
+@use "./projects";
+@use "./transformation";
+@use "./verified-proof";
+
+
+@import url('https://googleapis.com');
+
+
+
+
+h1,
+h2,
+.hero-title {
+    font-family: var(--font-header);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    /* Tight letter spacing for massive impact */
+    line-height: 0.95;
+    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    background: linear-gradient(180deg, variable.$heading-icons 30%, variable.$success-status 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+body,
+p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #ededed;
+    letter-spacing: -0.01em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: variable.$font-body;
+    color: variable.$body-text;
+    background-color: variable.$main-background;
+    scroll-snap-type: y mandatory; // Y-axis (vertical) scroll ko mandatory snap karega
+    overflow-y: scroll;
+    height: 100vh;
+
+    overflow-x: hidden;
+}

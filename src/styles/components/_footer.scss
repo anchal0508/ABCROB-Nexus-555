@@ -1,0 +1,38 @@
+@use "../abstracts/variables";
+
+
+.footer-container {
+    height: 50vh;
+    background-color: rgb(6, 19, 61);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: variables.$color-primary;
+
+    span {
+        color: variables.$color-primary;
+    }
+
+    .footer-container h3 {
+        color: antiquewhite;
+        margin: 20px;
+        color: variables.$color-primary;
+    }
+
+    a {
+        text-decoration: none;
+        color: variables.$color-primary;
+        padding: 10px;
+
+
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.2px);
+        -webkit-backdrop-filter: blur(4.2px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+
+    }
+}
