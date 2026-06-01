@@ -6,13 +6,11 @@ import Header from "../1-portfolio/homePage/components/Header";
 
 function SareeHome(){
 
-    return (
-        <>
+    return (<>
         <Header />
         <h1>Welcome to Saree Shop</h1>
         <Footer />
-        </>
-    )
+        </>);
 }
 
 

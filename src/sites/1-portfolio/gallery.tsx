@@ -5,14 +5,12 @@ import Header from "./homePage/components/Header";
 import ScoreBoard from "./homePage/components/ScoreBoard";
 
 function Galary() {
-    return (
-        <>
+    return (<>
             <Header />
             <h1>welcome to Galary</h1>
             <ScoreBoard />
             <Footer />
-        </>
-    );
+        </>);
 }
 
 export default Galary;

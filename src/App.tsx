@@ -9,6 +9,7 @@ import Certificates from './sites/1-portfolio/certificates';
 import ClassHome from './sites/7-online-classes/ClassHome';
 
 import SareeHome from './sites/2-saree/SareeHome';
+import CollageHome from './sites/5-collage-projects/CollageHome';
 // import ShuitHome from './sites/3-suit/ShuitHome';
 // import BeautyHome from './sites/4-beauty/BeautyHome';
 
@@ -48,6 +49,8 @@ function App() {
         <Route path="/online-classes" element={<ClassHome />} />
 
 
+
+        <Route path="/projects" element={<CollageHome />} />
 
 
         <Route path="/saree" element={<SareeHome />} />

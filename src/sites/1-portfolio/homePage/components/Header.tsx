@@ -23,8 +23,8 @@ function Header() {
         if (path.includes('/saree')) return '/saree';
         if (path.includes('/library')) return '/library';
         if (path.includes('/makeup')) return '/makeup';
-        if (path.includes('/projects')) return 'projects';
-        if (path.includes('/components')) return 'components';
+        if (path.includes('/projects')) return '/projects';
+        if (path.includes('/components')) return '/components';
 
         return 'portfolio'; // Kuch match nahi hua to 'MySelf' select rahega
     }
