@@ -1,6 +1,6 @@
 // <!-- Home (Hero section, summary) -->
 
-import Footer from "./components/Footer";
+import Footer from "../../Footer";
 import Header from "./components/Header";
 import MainContainer from "./MainContainer";
 

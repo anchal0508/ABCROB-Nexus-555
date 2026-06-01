@@ -1,6 +1,6 @@
 // Storefront Front Page
 
-import Footer from "../1-portfolio/homePage/components/Footer";
+import Footer from "../Footer";
 import Header from "../1-portfolio/homePage/components/Header";
 
 

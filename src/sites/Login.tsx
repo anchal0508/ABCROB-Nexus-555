@@ -1,12 +1,12 @@
 import React from 'react';
-import Footer from "./1-portfolio/homePage/components/Footer";
+import Footer from "./Footer";
 import Header from "./1-portfolio/homePage/components/Header";
 
 function LogIn() {
 
 
     function handleLogin(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
         const email = formData.get('email');
@@ -30,6 +30,7 @@ function LogIn() {
                     <input type="password" name="pass" id="pass" />
                 </label>
                 <button type="submit" className="primary-btn">LogIn</button>
+                <a href="/Signup" className='primary-btn'>SignUp</a>
             </form>
         </div>
         <Footer />

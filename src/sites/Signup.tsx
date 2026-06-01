@@ -1,4 +1,4 @@
-import Footer from "./1-portfolio/homePage/components/Footer";
+import Footer from "./Footer";
 import Header from "./1-portfolio/homePage/components/Header";
 
 function SignUp() {
@@ -14,7 +14,7 @@ function SignUp() {
                 <label htmlFor="email">Email
                     <input type="email" name="email" id="email" placeholder="555@xyz.com" />
                 </label>
-                <label htmlFor="phone">phone
+                <label htmlFor="phone">Phone
                     <input type="tel" name="phone" id="phone" placeholder="9876543210" />
                 </label>
                 <label htmlFor="dob">Date of birth

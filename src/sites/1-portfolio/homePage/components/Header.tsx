@@ -47,12 +47,12 @@ function Header() {
             </ul>
             <select name="webSwitch" id="webSwitch" value={getCurrentSelection()} onChange={navigateToPage}>
                 <option value="/" > MySelf </option>
-                <option value="/library"> library </option>
-                <option value="/suits"> Suits </option>
                 <option value="/saree"> Saree </option>
-                <option value="/makeup"> Make-Up </option>
+                <option value="/suits"> Suits </option>
+                <option value="/beauty"> Beauty Products </option>
                 <option value="projects"> Projects </option>
                 <option value="components"> Electronic Components </option>
+                <option value="/online-classes"> Online Class </option>
             </select>
         </header>
     );
