@@ -1,0 +1,6 @@
+// (Yahan Sirf Calculations hoti hain)
+
+// _functions.scss
+@function rem($pixels) {
+  @return ($pixels / 16) * 1rem; // Pixels ko REM me convert karne ke liye
+}
