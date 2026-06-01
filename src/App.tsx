@@ -99,6 +99,10 @@ function App() {
 
 
 
+        <Route path="/beauty" element={<BeautyHome />} />
+
+
+
 
       </Routes>
     </Router>
