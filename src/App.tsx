@@ -10,6 +10,8 @@ import ClassHome from './sites/7-online-classes/ClassHome';
 
 import SareeHome from './sites/2-saree/SareeHome';
 import CollageHome from './sites/5-collage-projects/CollageHome';
+import LogIn from './sites/Login';
+import SignUp from './sites/Signup';
 // import ShuitHome from './sites/3-suit/ShuitHome';
 // import BeautyHome from './sites/4-beauty/BeautyHome';
 
@@ -43,6 +45,11 @@ function App() {
       <ThemeSelector /> {/* Background me theme auto-switch karega */}
       
       <Routes>
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
+
+
+
         <Route path="/" element={<PortfolioHome />} />
         <Route path="/portfolio-galary" element={<Gallery />} />
         <Route path="/portfolio-certificates" element={<Certificates />} />

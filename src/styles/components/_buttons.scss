@@ -1,1 +1,14 @@
 // Standard buttons
+
+@use '../abstracts/variables' as variable;
+@use '../abstracts/mixins';
+
+.primary-btn{
+    padding: 10px 15px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    background-color: variable.$color-primary;
+    box-shadow: 2px 8px 15px variable.$success-status;
+}
+
+

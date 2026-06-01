@@ -25,6 +25,7 @@ function Header() {
         if (path.includes('/makeup')) return '/makeup';
         if (path.includes('/projects')) return '/projects';
         if (path.includes('/components')) return '/components';
+        if (path.includes('/')) return '/';
 
         return 'portfolio'; // Kuch match nahi hua to 'MySelf' select rahega
     }
@@ -45,7 +46,7 @@ function Header() {
                 ))}
             </ul>
             <select name="webSwitch" id="webSwitch" value={getCurrentSelection()} onChange={navigateToPage}>
-                <option value="portfolio" > MySelf </option>
+                <option value="/" > MySelf </option>
                 <option value="/library"> library </option>
                 <option value="/suits"> Suits </option>
                 <option value="/saree"> Saree </option>
