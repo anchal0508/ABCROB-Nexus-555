@@ -1,29 +1,157 @@
-// Checkout, login, contact forms
+// ==========================================================================
+// Checkout, Login, and Contact Forms Component
+// Methodology: BEM (Block, Element, Modifier)
+// ==========================================================================
 
 @use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
 
-.form-container{
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
+// --------------------------------------------------------------------------
+// Keyframes Definitions
+// --------------------------------------------------------------------------
+
+// Slider animations
+@keyframes leftRotate {
+    from { transform: translateX(0) rotate(0deg); }
+    to   { transform: translateX(-680px) rotate(-60deg); }
+}
+
+@keyframes rightRotate {
+    from { transform: translateX(-680px) rotate(-60deg); }
+    to   { transform: translateX(200px) rotate(60deg); }
+}
+
+@keyframes backToLoginRotate {
+    from { transform: translateX(200px) rotate(60deg); }
+    to   { transform: translateX(-680px) rotate(-60deg); }
+}
+
+// Content and Form transitions
+@keyframes logInAppear {
+    from { opacity: 0; transform: translateX(500px); }
+    to   { opacity: 1; transform: translateX(0px); }
+}
+
+@keyframes signUpAppear {
+    from { opacity: 0; transform: translateX(-500px); }
+    to   { opacity: 1; transform: translateX(0px); }
+}
+
+@keyframes textAppear {
+    from { opacity: 0; transform: translateX(-500px); }
+    to   { opacity: 1; transform: translateX(0px); }
+}
+
+// --------------------------------------------------------------------------
+// Component Layout Styles
+// --------------------------------------------------------------------------
+
+.form-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 50% auto;
+    width: 60%;
     min-height: 500px;
-    width: 600px;
-    @include flex-center;
+    margin: 100px auto 0 auto;
+    overflow: hidden;
+    background-color: $main-background;
+    border-radius: 30px;
+    box-shadow: 1px 15px 10px $success-status;
 
-    form{
-        @include flex-center;
-        padding: 20px;
+    // Elements: Info Message Box
+    .msg {
+        top: 0;
+        z-index: 2;
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        box-shadow: 0px 15px 25px 10px orangered;
-        border-radius: 15px;
-        label{
-            width: 100%;
-            input{
-                width: 100%;
-            }
+        align-items: center;
+        justify-content: center;
+        animation: textAppear 0.5s ease-in forwards;
 
+        h2 {
+            font-size: 55px;
+            text-align: center;
+        }
+
+        span {
+            color: white;
         }
     }
 
+    // Elements: Shared Form Component Base Styles
+    .login-form,
+    .signup-form {
+        @include flex-center;
+        z-index: 2;
+        flex-direction: column;
+        gap: 20px;
+        width: 400px;
+        height: 80vh;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: -5px 1px 25px 5px $success-status;
+
+        // Modifiers for states activation
+        &.login-active {
+            display: flex;
+            animation: logInAppear 0.5s ease-in both;
+            animation-delay: 1.5s;
+        }
+
+        &.first-load {
+            animation-delay: 2s !important;
+        }
+
+        label {
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+
+    // Explicit adjustments for signup form element variant
+    .signup-form {
+        gap: 5px;
+
+        &.signup-active {
+            display: flex;
+            animation: signUpAppear 0.5s ease-in both;
+            animation-delay: 1.5s;
+        }
+    }
+
+    // Utility Modifier: Global form toggle hider 
+    .form-hidden {
+        display: none !important;
+        opacity: 0;
+    }
+
+    // Elements: Visual Background Section Slider
+    .slider {
+        position: absolute;
+        top: -485px;
+        z-index: 1;
+        width: 1200px;
+        height: 1000px;
+        padding: 25px;
+        background-color: $color-primary;
+
+        &.first-time-login {
+            animation: leftRotate 1.5s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        &.login-active {
+            animation: backToLoginRotate 1.5s ease-in-out forwards;
+            animation-delay: 0s !important;
+        }
+
+        &.signup-active {
+            animation: rightRotate 1.5s ease-in-out forwards;
+            animation-delay: 0s !important;
+        }
+    }
 }

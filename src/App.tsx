@@ -32,8 +32,8 @@ import ProjectDetail from './sites/5-collage-projects/ProjectDetail';
 import StudentDashboard from './sites/5-collage-projects/StudentDashboard';
 
 
-import LogIn from './sites/Login';
-import SignUp from './sites/Signup';
+import LoginAndSignup from './sites/LoginAndSignup';
+
 
 
 
@@ -65,8 +65,8 @@ function App() {
       <Routes>
         {/* ------------ LogIn SignUp ------------ */}
 
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/LoginAndSignup" element={<LoginAndSignup />} />
+        
 
 
         {/* ------------ Portfolio ------------ */}

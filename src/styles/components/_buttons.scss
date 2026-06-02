@@ -1,14 +1,23 @@
 // Standard buttons
 
-@use '../abstracts/variables' as variable;
+@use '../abstracts/variables' as *;
 @use '../abstracts/mixins';
 
-.primary-btn{
+.primary-btn {
     padding: 10px 15px;
     margin: 10px 20px;
     border-radius: 10px;
-    background-color: variable.$color-primary;
-    box-shadow: 2px 8px 15px variable.$success-status;
+    background-color: $color-primary;
+    box-shadow: 2px 8px 15px $success-status;
 }
 
+.anchorBtn {
+    color: blue;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.5s ease;
 
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
