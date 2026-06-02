@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 
 function LogIn() {
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -38,7 +37,7 @@ function LogIn() {
                     ) : (
                         <a className='anchorBtn' style={{cursor:'pointer'}} onClick={() => handleToggle(true)}> LogIn</a>
                     )}
-                    
+
                 </div>
 
 
