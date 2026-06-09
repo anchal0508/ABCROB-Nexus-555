@@ -3,16 +3,6 @@
 
  
 
-@keyframes moveRotate{
-    from{
-        transform: translateX(-80vw) rotate(0deg);
-
-    }
-    to{
-        transform: translateX(1vw) rotate(360deg);
-    }
-}
-
 .outer-container {
 
     min-height: 100vh;

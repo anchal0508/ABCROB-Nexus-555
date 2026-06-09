@@ -24,3 +24,12 @@ $theme-colors : ("primary" : $color-primary,
     --font-body: 'Geist', system-ui, sans-serif;
     --accent-glow: #00ffcc;
 }
+
+
+:root {
+    --cards: 3;
+    --cardHeight: 87vh;
+    --cardTopPadding: 1.5em;
+    /* Har card ke bich ka space jo upar se dikhega */
+    --cardMargin: 4vw;
+}

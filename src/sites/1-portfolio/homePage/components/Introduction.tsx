@@ -4,11 +4,13 @@ import momento from "../../images/momento.png";
 function Introduction() {
 
 
-    
+
     return (<>
         <div className="outer-container">
             <div className="momento introbox">
-                <a href={momento} target="_blank"><img src={momento} alt="Momentos during Collage Workshops" /></a>
+                <a href={momento} target="_blank">
+                    <img src={momento} alt="Momentos during Collage Workshops" />
+                </a>
             </div>
 
             <div className="profile introbox">

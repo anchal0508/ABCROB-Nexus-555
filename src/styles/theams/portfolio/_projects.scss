@@ -1,12 +1,5 @@
 @use "../../abstracts/variables";
 
-:root {
-    --cards: 3;
-    --cardHeight: 87vh;
-    --cardTopPadding: 1.5em;
-    /* Har card ke bich ka space jo upar se dikhega */
-    --cardMargin: 4vw;
-}
 
 .project-container {
     padding: 50px;
