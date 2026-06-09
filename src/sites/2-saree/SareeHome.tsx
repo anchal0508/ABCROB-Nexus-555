@@ -1,16 +1,15 @@
 // Storefront Front Page
 
-import Footer from "../Footer";
-import Header from "../1-portfolio/homePage/components/Header";
 
 
-function SareeHome(){
+function SareeHome() {
 
-    return (<>
-        <Header />
-        <h1>Welcome to Saree Shop</h1>
-        <Footer />
-        </>);
+    return (
+        <div className="saree-base">
+            <h1>.</h1>
+            <h1>Welcome to Saree Shop</h1>
+        </div>
+    );
 }
 
 

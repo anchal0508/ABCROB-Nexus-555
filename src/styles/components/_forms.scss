@@ -11,112 +11,130 @@
 // Component Layout Styles
 // --------------------------------------------------------------------------
 
-.form-container {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 50% auto;
-    width: 60%;
-    min-height: 500px;
-    margin: 100px auto 0 auto;
-    overflow: hidden;
-    background-color: $main-background;
-    border-radius: 30px;
-    box-shadow: 1px 15px 10px $success-status;
 
-    // Elements: Info Message Box
-    .msg {
-        top: 0;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        animation: textAppear 0.5s ease-in forwards;
+.loginSignup-page {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        h2 {
-            font-size: 55px;
-            text-align: center;
-        }
 
-        span {
-            color: white;
-        }
-    }
 
-    // Elements: Shared Form Component Base Styles
-    .login-form,
-    .signup-form {
-        @include flex-center;
-        z-index: 2;
-        flex-direction: column;
-        gap: 20px;
-        width: 400px;
-        height: 80vh;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: -5px 1px 25px 5px $success-status;
+    .card {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 50% auto;
+        width: 60%;
+        min-height: 500px;
+        margin: 100px auto 0 auto;
+        overflow: hidden;
+        background-color: $main-background;
+        border-radius: 30px;
+        box-shadow: 1px 15px 10px $success-status;
 
-        // Modifiers for states activation
-        &.login-active {
+        // Elements: Info Message Box
+        .msg {
+            top: 0;
+            z-index: 2;
             display: flex;
-            animation: logInAppear 0.5s ease-in both;
-            animation-delay: 1.5s;
-        }
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: textAppear 0.5s ease-in forwards;
 
-        &.first-load {
-            animation-delay: 2s !important;
-        }
+            h2 {
+                font-size: 55px;
+                text-align: center;
+            }
 
-        label {
-            width: 100%;
-
-            input {
-                width: 100%;
+            span {
+                color: white;
             }
         }
-    }
 
-    // Explicit adjustments for signup form element variant
-    .signup-form {
-        gap: 5px;
+        // Elements: Shared Form Component Base Styles
+        .login-form,
+        .signup-form {
+            @include flex-center;
+            z-index: 2;
+            flex-direction: column;
+            width: 400px;
+            min-height: 80vh;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: -5px 1px 25px 5px $success-status;
 
-        &.signup-active {
-            display: flex;
-            animation: signUpAppear 0.5s ease-in both;
-            animation-delay: 1.5s;
+            // Modifiers for states activation
+            &.login-active {
+                display: flex;
+                animation: logInAppear 0.5s ease-in both;
+                animation-delay: 1.5s;
+            }
+
+            &.first-load {
+                animation-delay: 2s !important;
+            }
+
+            label {
+                display: block;
+                font-weight: 500;
+                width: 100%;
+                padding: 0.6rem;
+                color: whitesmoke;
+                
+                input {
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 0.6rem;
+                    border-radius: 0.6rem;
+                }
+            }
         }
-    }
 
-    // Utility Modifier: Global form toggle hider 
-    .form-hidden {
-        display: none !important;
-        opacity: 0;
-    }
+        // Explicit adjustments for signup form element variant
+        .signup-form {
+            gap: 5px;
 
-    // Elements: Visual Background Section Slider
-    .slider {
-        position: absolute;
-        top: -485px;
-        z-index: 1;
-        width: 1200px;
-        height: 1000px;
-        padding: 25px;
-        background-color: $color-primary;
-
-        &.first-time-login {
-            animation: leftRotate 1.5s ease-in-out forwards;
-            animation-delay: 0.5s;
+            &.signup-active {
+                display: flex;
+                animation: signUpAppear 0.5s ease-in both;
+                animation-delay: 1.5s;
+            }
         }
 
-        &.login-active {
-            animation: backToLoginRotate 1.5s ease-in-out forwards;
-            animation-delay: 0s !important;
+        // Utility Modifier: Global form toggle hider 
+        .form-hidden {
+            display: none !important;
+            opacity: 0;
         }
 
-        &.signup-active {
-            animation: rightRotate 1.5s ease-in-out forwards;
-            animation-delay: 0s !important;
+        // Elements: Visual Background Section Slider
+        .slider {
+            position: absolute;
+            top: -485px;
+            z-index: 1;
+            width: 1200px;
+            height: 1000px;
+            padding: 25px;
+            background-color: $color-primary;
+            opacity: 0.6;
+
+            &.first-time-login {
+                animation: leftRotate 1.5s ease-in-out forwards;
+                animation-delay: 0.5s;
+            }
+
+            &.login-active {
+                animation: backToLoginRotate 1.5s ease-in-out forwards;
+                animation-delay: 0s !important;
+            }
+
+            &.signup-active {
+                animation: rightRotate 1.5s ease-in-out forwards;
+                animation-delay: 0s !important;
+            }
         }
     }
 }

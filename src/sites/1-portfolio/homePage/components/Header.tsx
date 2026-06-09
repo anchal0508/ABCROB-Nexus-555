@@ -22,12 +22,13 @@ function Header() {
         if (path.includes('/suits')) return '/suits';
         if (path.includes('/saree')) return '/saree';
         if (path.includes('/library')) return '/library';
-        if (path.includes('/makeup')) return '/makeup';
+        if (path.includes('/beauty')) return '/beauty';
         if (path.includes('/projects')) return '/projects';
         if (path.includes('/components')) return '/components';
-        if (path.includes('/')) return '/';
+        if (path.includes('/online-classes')) return '/online-classes';
+        if (path === '/') return '/';
 
-        return 'portfolio'; // Kuch match nahi hua to 'MySelf' select rahega
+        return '/'; // Kuch match nahi hua to 'MySelf' select rahega
     }
 
 
@@ -50,8 +51,8 @@ function Header() {
                 <option value="/saree"> Saree </option>
                 <option value="/suits"> Suits </option>
                 <option value="/beauty"> Beauty Products </option>
-                <option value="projects"> Projects </option>
-                <option value="components"> Electronic Components </option>
+                <option value="/projects"> Projects </option>
+                <option value="/components"> Electronic Components </option>
                 <option value="/online-classes"> Online Class </option>
             </select>
         </header>

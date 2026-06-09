@@ -1,2 +1,28 @@
 // Professional, educational layout
 @use "../abstracts/variables" as variable;
+
+
+.classHeader-page {
+    .hero {
+        display: grid;
+        grid-template-columns: 50% auto;
+        padding: 1.25rem;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 35px;
+        }
+
+        .image {
+            width: 200px;
+            img {
+                width: 100%;
+                
+                
+
+            }
+        }
+    }
+
+}

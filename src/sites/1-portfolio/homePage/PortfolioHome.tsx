@@ -1,23 +1,16 @@
 // <!-- Home (Hero section, summary) -->
 
-import Footer from "../../Footer";
-import Header from "./components/Header";
 import MainContainer from "./MainContainer";
-
-
 
 
 
  function PortfolioHome() {
 
-  return <div>
-    <div className="body">
-      <Header />
+  return (
+    <div className="portfolio-home">
       <MainContainer />
-      <Footer />
     </div>
-  </div>
-
+  );
 }
 
 export default PortfolioHome;

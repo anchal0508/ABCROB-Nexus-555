@@ -1,13 +1,11 @@
-import Header from "../5-collage-projects/ProjectHeader";
-import Footer from "../Footer";
 
-function BeautyHome (){
-    return (<>
-    <Header />
-    <h1>.</h1>
-    <h1>Beauty Home</h1>
-    <Footer />
-    </>)
+function BeautyHome() {
+    return (
+        <div className="bueauty-base">
+            <h1>.</h1>
+            <h1>Beauty Home</h1>
+        </div>
+    );
 }
 
 

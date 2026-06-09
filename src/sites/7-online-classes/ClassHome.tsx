@@ -1,16 +1,17 @@
 // <!-- // Course listing & landing page -->
 
-import Header from "./ClassHeader";
-import Footer from "../Footer";
+import ClassHeader from "./ClassHeader";
 
 
-function ClassHome(){
-    return (<>
-    <Header />
-    <h1>.</h1>
-    <h1>Online Class DashBoard</h1>
-    <Footer />
-    </>)
+
+function ClassHome() {
+    return (
+        <div className="classes-page">
+            
+            <ClassHeader />
+
+        </div>
+    );
 }
 
 export default ClassHome;

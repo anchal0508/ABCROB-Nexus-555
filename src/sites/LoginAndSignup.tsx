@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Header from './1-portfolio/homePage/components/Header';
-import Footer from './Footer';
 
 function LogIn() {
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -20,9 +18,8 @@ function LogIn() {
     }
 
     return (
-        <>
-        <Header />
-            <div className="form-container">
+        <div className='loginSignup-page'>
+            <div className="card">
 
 
                 <div className="msg">
@@ -90,8 +87,7 @@ function LogIn() {
                 <div className={`slider ${sliderClass}`}></div>
             </div>
 
-            <Footer />
-        </>
+        </div>
     );
 }
 
