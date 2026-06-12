@@ -1,4 +1,3 @@
-import React from "react";
 import glimpseImg from "../../images/glimps.jpg"; // इमेज का नाम वही रखा है जो आपके पास है
 
 function Glimpse() {
