@@ -1,38 +1,82 @@
 @use "../../abstracts/variables";
 
-
-.glimps-container {
-    height: 100vh;
+.glimpse-container {
+    min-height: 100vh; // height: 100vh से बदलकर min-height किया ताकि कंटेंट कटने की गुंजाइश न रहे
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    // रिस्पॉन्सिव ग्रिड: बड़ी स्क्रीन पर 2 कॉलम, लैपटॉप/टैबलेट पर अपने आप 1 कॉलम में आ जाएगा
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    justify-content: center;
+    padding: 60px 40px;
+    background-color: variables.$main-background;
+    gap: 40px;
+
+    .glimpse-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            max-height: 75vh;
+            border-radius: 16px; // तीखे कोनों को आधुनिक स्लीक लुक देने के लिए
+            border: 1px solid rgba(16, 185, 129, 0.2); // बुध की सूक्ष्म हरी बॉर्डर लाइन
+            
+            // ग्लो इफेक्ट को सॉफ्ट अल्फा के साथ बदला गया ताकि लेआउट क्लासी दिखे
+            box-shadow: 0px 20px 40px rgba(16, 185, 129, 0.25);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            &:hover {
+                transform: translateY(-8px) scale(1.02); // प्रीमियम सूक्ष्म एनीमेशन
+                box-shadow: 0px 30px 60px rgba(16, 185, 129, 0.4); // होवर पर बुध की ऊर्जा का उभार
+                border-color: variables.$color-secondary;
+            }
+        }
+    }
 
     .home-heading {
-        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 45px;
         padding: 40px;
+        text-align: center;
+        
         animation: zoomEffect linear both;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
-    }
 
-    .glimps {
-        text-align: center;
+        h2 {
+            font-size: 52px;
+            font-family: variables.$font-heading; // 'Plus Jakarta Sans'
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: variables.$heading-icons; // मुख्य भाग श्वेत-नीला चमकेगा
 
-        img {
-            max-height: 80vh;
-            box-shadow: 0px 20px 22px 10px variables.$success-status;
-
-            &:hover {
-                box-shadow: 10px 20px 22px 18px variables.$success-status;
+            // "IN INDIA" शब्द को मंगल की नारंगी शक्ति या बुध के हरे रंग में चमकाने के लिए
+            span.highlight {
+                color: variables.$color-secondary; // #10B981 (बुध की तीव्र समृद्धि का प्रतीक)
+                display: block;
+                margin-top: 10px;
             }
+        }
+    }
+}
+
+// मोबाइल स्क्रीन्स के लिए विशिष्ट अनुकूलन
+@media (max-width: 768px) {
+    .glimpse-container {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        
+        .home-heading h2 {
+            font-size: 36px;
         }
     }
 }

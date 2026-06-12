@@ -1,17 +1,20 @@
-import glimps from "../../images/glimps.jpg";
+import React from "react";
+import glimpseImg from "../../images/glimps.jpg"; // इमेज का नाम वही रखा है जो आपके पास है
 
-function Glimps() {
+function Glimpse() {
     return (
-        <section className="glimps-container">
-            <div className="glimps">
-                <img src={glimps} alt="Glimps of Workshop in India" />
+        <section className="glimpse-container">
+            <div className="glimpse-wrapper">
+                <img src={glimpseImg} alt="Glimpse of Workshops in India" />
             </div>
             <div className="home-heading">
-                <h2 >Glimps of workshops in India</h2>
-
+                <h2>
+                    Glimpse of workshops 
+                    <span className="highlight">in India</span>
+                </h2>
             </div>
         </section>
     );
 }
 
-export default Glimps;
+export default Glimpse;

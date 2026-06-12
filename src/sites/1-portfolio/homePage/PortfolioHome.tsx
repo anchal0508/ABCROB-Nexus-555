@@ -1,14 +1,25 @@
 // <!-- Home (Hero section, summary) -->
 
-import MainContainer from "./MainContainer";
+import Glimpse from "./components/Glimps";
+import Introduction from "./components/Introduction";
+import Projects from "./components/Projects";
+import ScoreBoard from "./components/ScoreBoard";
+import Transformation from "./components/Transformation";
+import VerifiedProof from "./components/VerifiedProof";
 
 
 
- function PortfolioHome() {
+function PortfolioHome() {
 
   return (
     <div className="portfolio-home">
-      <MainContainer />
+      <Introduction />
+
+      <ScoreBoard />
+      <Transformation />
+      <Glimpse />
+      <VerifiedProof />
+      <Projects />
     </div>
   );
 }

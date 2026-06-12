@@ -1,49 +1,88 @@
 @use "../../abstracts/variables";
 
-
 .score-banner {
-    min-height: 120vh;
+    min-height: 80vh; // 120vh बहुत ज़्यादा था, इसे संतुलित किया
     display: flex;
-    gap: 40px;
+    gap: 30px;
     background-color: variables.$main-background;
     justify-content: center;
     align-items: center;
     color: variables.$body-text;
+    padding: 40px;
 
+    // एनीमेशन
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
-    border-radius: 50px;
-    box-shadow: 0px 10px 15px  orange;
+    
+    border-radius: 24px; // 50px से थोड़ा अधिक आधुनिक और स्लीक लुक
+    // 🚨 नारंगी शैडो को हटाकर शनि के गहरे नीले रंग की सूक्ष्म शैडो दी ताकि स्थिरता दिखे
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3); 
 
     .score-item {
         display: flex;
         flex-direction: column;
-        height: 50vh;
-        width: 25%;
+        height: 40vh; // हाइट को थोड़ा कॉम्पैक्ट किया
+        flex: 1; // 25% की जगह flex: 1 से चारों कार्ड्स को समान और रिस्पॉन्सिव जगह मिलेगी
         text-align: center;
-        padding: 10px;
-        transition: all 0.5s ease;
-        box-shadow: 0px 15px 15px 5px variables.$success-status;
-        justify-content: center;
-        align-items: center;
+        padding: 20px;
+        background-color: variables.$card-color; // कार्ड्स को बैकग्राउंड रंग दिया ताकि वो तैरते हुए न दिखें
+        border-radius: 16px;
+        border-bottom: 4px solid variables.$color-secondary; // नीचे बुध देव की हरी समृद्धि की कड़क लाइन
+        
+        // ग्लो इफेक्ट (बॉक्स-शैडो) को अत्यधिक स्मूथ किया गया
+        box-sizing: border-box;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); // बुध की स्मूथ गति के लिए बेज़ियर कर्व
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15); // बुध की सूक्ष्म हरी आभा
 
         animation: rotate linear both;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
         
+        justify-content: center;
+        align-items: center;
+
+        // 🚀 होवर का महा-सुधार: लेआउट बिना हिलाए केवल कार्ड ऊपर उठेगा
         &:hover {
-            font-size: 50px;
-            transform: scale(1.05);
-            width: 80%;
-            box-shadow: 0px 15px 15px 5px variables.$color-primary;
+            transform: translateY(-10px) scale(1.03); // कार्ड प्यार से ऊपर की तरफ उठेगा
+            border-bottom-color: variables.$color-primary; // होवर पर नीचे की लाइन मंगल के नारंगी रंग में बदलेगी
+            box-shadow: 0px 20px 30px rgba(255, 140, 0, 0.25); // मंगल की लीडरशिप का हल्का ग्लो
+            
+            h2 {
+                transform: scale(1.05); // केवल टेक्स्ट थोड़ा सा बड़ा होगा
             }
+        }
 
         h2 {
-            color: orange;
-            font-size: 40px;
-            display: inline-block;
-            
+            color: variables.$color-primary; // #FF8C00 वेरिएबल का उपयोग
+            font-size: 42px;
+            font-family: variables.$font-heading; // 'Plus Jakarta Sans'
+            font-weight: 800;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        p {
+            font-size: 14px;
+            font-family: variables.$font-body; // 'Inter' या 'Geist'
+            color: variables.$body-text;
+            letter-spacing: 0.5px;
+            text-transform: uppercase; // टेक्स्ट को प्रोफेशनल लुक देने के लिए
+        }
+    }
+}
+
+// छोटी स्क्रीन (मोबाइल) के लिए रिस्पॉन्सिव बनाना बेहद ज़रूरी है
+@media (max-width: 968px) {
+    .score-banner {
+        flex-direction: column;
+        min-height: auto;
+        gap: 20px;
+        
+        .score-item {
+            width: 100%;
+            height: auto;
+            padding: 40px 20px;
         }
     }
 }

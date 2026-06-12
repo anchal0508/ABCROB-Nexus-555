@@ -1,35 +1,46 @@
 // Global spacing, font families, break points
 
-$color-primary: #FF8C00; // ki unerline on hover use karna hai ||  H2/H3
-$color-secondary :#64FFDA; // links color
-$main-background : #0A192F; // navbar color background
-$heading-icons: #CCD6F6; // main heading bold big font me "ANCHAL kOSHTA"
-$body-text: #8892B0; // body-text color
-$success-status: #555555; // on success + shadow + depth on cards
-$card-color: #112240; // use in cards background
+// 1. मंगल की ऊर्जा (संशोधित: आंशिक परिवर्तन - अंडरलाइन और हेडिंग्स के लिए एकदम सटीक)
+$color-primary: #FF8C00; // हेडिंग्स (H2/H3) और होवर अंडरलाइन के लिए सर्वोत्तम
 
-$font-heading: 'Plus Jakarta Sans', sans-serif; // For H1, H2, H3
+// 2. बुध की ऊर्जा (बदला गया: #64FFDA से #10B981) - आपके 555 / 55555+ का मुख्य ईंधन
+$color-secondary: #10B981; // लिंक्स और एक्टिव स्टेट्स के लिए गहरा धानी हरा
+
+// 3. शनि की ऊर्जा (बिल्कुल सही: गहरा नेवी ब्लू बैकग्राउंड)
+$main-background: #0A192F; // नैवबार और मुख्य बैकग्राउंड (शनि का गहरा साम्राज्य)
+
+// 4. चंद्रमा और स्पष्टता (बिल्कुल सही: बोल्ड हेडिंग्स के लिए)
+$heading-icons: #CCD6F6; // मुख्य हेडिंग "ANCHAL KOSHTA" के लिए
+
+// 5. मकर राशि का अनुशासन (बिल्कुल सही: सघन टेक्स्ट के लिए)
+$body-text: #8892B0; // बॉडी टेक्स्ट का रंग
+
+// 6. सबसे महत्वपूर्ण सुधार (बदला गया: #555555 को #059669 से) - सफलता का सूचक
+$success-status: #059669; // सफलता (Success), शैडो और कार्ड्स की डेप्थ के लिए
+
+// 7. शनि की स्थिरता (बिल्कुल सही: कार्ड बैकग्राउंड)
+$card-color: #112240; // कार्ड्स का बैकग्राउंड (मुख्य बैकग्राउंड से थोड़ा हल्का)
+
+$font-heading: 'Plus Jakarta Sans', sans-serif; 
 $font-body: 'Inter', sans-serif;
 
-
-$theme-colors : ("primary" : $color-primary,
-    "secondry": $color-secondary,
-    "background":$main-background,
-    "text":$body-text );
-
-
+$theme-colors : (
+    "primary": $color-primary,
+    "secondary": $color-secondary, // स्पेलिंग ठीक की गई (secondry -> secondary)
+    "background": $main-background,
+    "text": $body-text 
+);
 
 :root {
     --fonts-header: 'Unbounded', system-ui, sans-serif;
     --font-body: 'Geist', system-ui, sans-serif;
-    --accent-glow: #00ffcc;
+    // 8. बुध की चमक (बदला गया: #00ffcc से #10B981)
+    --accent-glow: #10B981; // ग्लो इफेक्ट के लिए 555 की ऊर्जा
 }
-
 
 :root {
     --cards: 3;
     --cardHeight: 87vh;
     --cardTopPadding: 1.5em;
-    /* Har card ke bich ka space jo upar se dikhega */
     --cardMargin: 4vw;
 }

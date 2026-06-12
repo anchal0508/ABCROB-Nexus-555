@@ -1,16 +1,18 @@
 @use "../../abstracts/variables";
 
-
-
 #transformation-journey {
-
-    height: 100vh;
+    min-height: 100vh; // height: 100vh से बदलकर min-height किया ताकि रिस्पॉन्सिव रहे
+    padding-bottom: 80px; // नीचे से सांस लेने के लिए जगह दी
+    background-color: variables.$main-background;
 
     .home-heading {
-        margin-top: 150px;
+        margin-top: 100px; // 150px से थोड़ा कम किया ताकि लेआउट संतुलित रहे
         text-align: center;
-        font-size: 40px;
-        padding: 20px;
+        font-size: 42px;
+        font-family: variables.$font-heading; // 'Plus Jakarta Sans'
+        font-weight: 800;
+        color: variables.$heading-icons; // #CCD6F6
+        letter-spacing: 1px;
 
         animation: AppearTransform linear both;
         animation-timeline: view();
@@ -18,51 +20,62 @@
     }
 
     .journey-555-main {
-
         display: flex;
-
         justify-content: space-around;
-        padding: 20px;
+        padding: 40px 20px;
         align-items: center;
+        gap: 40px;
 
-
-
+        // 🌟 ग्लासमॉर्फिज़्म कार्ड का महा-सुधार (शनि की गहराई + बुध का ओजस)
         .details-555 {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 40%;
-            padding: 20px;
-            height: 100%;
-
+            width: 45%;
+            padding: 30px;
+            
             animation: TransformLeftRotate linear both;
             animation-timeline: view();
             animation-range: entry 0% cover 35%;
 
-
-
-            /* From https://css.glass */
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(4.2px);
-            -webkit-backdrop-filter: blur(4.2px);
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            /* प्रीमियम कॉस्मिक ग्लास इफेक्ट */
+            background: rgba(17, 34, 64, 0.65); // आपके $card-color (#112240) का पारदर्शी रूप
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            // 555 हरे रंग की सूक्ष्म बॉर्डर जो चमकती हुई दिखेगी
+            border: 1px solid rgba(16, 185, 129, 0.2); 
 
             p {
                 text-align: left;
-                font-size: 20px;
-                padding: 15px;
+                font-size: 18px;
+                line-height: 1.6;
+                font-family: variables.$font-body;
+                color: variables.$body-text; // पढ़ने में बेहद आसान
+
+                // अंदर के हाइलाइटेड शब्दों के लिए सटीक मंगल का नारंगी रंग
+                span.highlight-orange {
+                    color: variables.$color-primary; // #FF8C00
+                    font-weight: bold;
+                }
+
+                // अंदर के हाइलाइटेड शब्दों के लिए सटीक बुध का हरा रंग
+                span.highlight-green {
+                    color: variables.$color-secondary; // #10B981
+                    font-weight: bold;
+                }
             }
         }
 
+        // गूगल मैप्स स्क्रीनशॉट कंटेनर
         .googleMap {
             display: flex;
-            gap: 20px;
+            gap: 30px;
 
             .img-textBox {
                 display: flex;
-                gap: 10px;
+                gap: 15px;
                 flex-direction: column;
                 align-items: center;
 
@@ -71,18 +84,71 @@
                 animation-range: entry 0% cover 35%;
 
                 .imgText {
-                    font-size: 25px;
-                    font-weight: bold;
-                    text-transform: uppercase;
+                    font-size: 22px;
+                    font-family: variables.$font-heading;
+                    font-weight: 800;
+                    color: variables.$color-primary; // '1000+ PLACE VISITS' को नारंगी लुक दिया
+                    letter-spacing: 0.5px;
                 }
 
                 img {
-                    width: 280px;
-                    height: 450px;
+                    width: 260px;
+                    height: auto; // फिक्स्ड 450px से हटाकर ऑटो किया ताकि एस्पेक्ट रेशियो न बिगड़े
+                    border-radius: 16px; // तीखे कोनों को स्मूथ किया
+                    border: 2px solid rgba(204, 214, 246, 0.1); // सूक्ष्म बॉर्डर
+                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                    transition: transform 0.4s ease, border-color 0.4s ease;
 
+                    &:hover {
+                        transform: scale(1.03) translateY(-5px);
+                        border-color: variables.$color-secondary; // होवर पर बुध का हरा घेरा
+                    }
                 }
             }
         }
-
     }
+}
+
+// 📱 मोबाइल और टैबलेट के लिए अत्यंत आवश्यक रिस्पॉन्सिव मीडिया क्वेरी
+@media (max-width: 1024px) {
+    #transformation-journey {
+        min-height: auto;
+        
+        .journey-555-main {
+            flex-direction: column-reverse; // मोबाइल पर मैप्स ऊपर और टेक्स्ट नीचे आएगा
+            gap: 50px;
+            
+            .details-555 {
+                width: 90%;
+            }
+            
+            .googleMap {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+
+p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: variables.$font-body;
+    color: variables.$body-text; // डिफ़ॉल्ट रूप से सॉफ्ट ग्रे-ब्लू टेक्स्ट
+}
+
+// 🚨 इसे नेस्टिंग से बाहर निकालो या सीधे ऐसे लिखो (ताकि हर जगह काम करे)
+.highlight-orange {
+    color: variables.$color-primary !important; // #FF8C00 (मंगल की कड़क नारंगी ऊर्जा)
+    font-weight: 800 !important;
+    display: inline; // ताकि लाइन के बीच में स्पेस न टूटे
+}
+
+.highlight-green {
+    color: variables.$color-secondary !important; // #10B981 (बुध की 555 हरी ऊर्जा)
+    font-weight: 800 !important;
+    display: inline;
 }

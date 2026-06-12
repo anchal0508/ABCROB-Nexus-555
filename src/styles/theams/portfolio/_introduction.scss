@@ -1,29 +1,31 @@
 @use "sass:map";
 @use "../../abstracts/variables";
 
- 
-
 .outer-container {
-
     min-height: 100vh;
-    margin-top: 40px;
     display: grid;
-    grid-template-columns: 450px auto auto;
+    // रिस्पॉन्सिव ग्रिड: बड़ी स्क्रीन्स पर 3 कॉलम, छोटी पर अपने आप एडजस्ट होगा
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     padding: 50px;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: variables.$font-body; // आपके आधुनिक 'Geist' या 'Inter' फॉन्ट का उपयोग
 
-    .introbox{
+    .introbox {
         animation: moveRotate 1s ease-in;
     }
+
+    // कॉलेज गैलरी बॉक्स - 555 बुध देव की शुद्ध हरी बॉर्डर ऊर्जा
     .momento {
-        width: 410px;
-        border: 10px solid variables.$success-status;
+        width: 100%;
+        max-width: 410px;
+        border: 2px solid variables.$color-secondary; // #10B981 का सही वेरिएबल उपयोग
         border-radius: 10px;
+        overflow: hidden;
              
-        img{
+        img {
             width: 100%;
+            display: block;
         }
     }
 
@@ -33,93 +35,128 @@
         align-items: center;
         padding: 10px;
         gap: 20px;
+        text-align: center;
  
+        // लेगेसी टैग - मंगल की नारंगी ऊर्जा
         .legacy {
             margin-top: 20px;
-            background-color: variables.$color-primary;
-            color: variables.$heading-icons;
-            padding: 10px;
-            font-weight: bolder;
+            background-color: variables.$color-primary; // #FF8C00
+            color: variables.$main-background; // गहरे बैकग्राउंड पर स्पष्टता के लिए
+            padding: 8px 16px;
+            font-weight: bold;
             border-radius: 15px;
             width: fit-content;
             font-size: 12px;
-             transition: color 0.5s ease;
-            &:hover{
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: variables.$color-secondary; // होवर पर बुध की हरी समृद्धि
                 color: variables.$main-background;
-                font-weight: bold;
             }
         }
 
+        // 🚨 नाम का महा-सुधार (अब "Anchal" पूरी तरह चमकेगा)
         .name {
+            font-family: variables.$font-heading; // 'Plus Jakarta Sans'
 
             .Profile-name1,
             .Profile-name2 {
                 font-size: 60px;
-                font-weight: bolder;
-                padding: 10px;
-                color: darkblue;
-
+                font-weight: 900;
+                padding: 0 5px;
+                display: inline-block;
             }
 
+            // आंचल: चंद्रमा और स्पष्टता का प्रतीक श्वेत रंग (अब अंधकार दूर होगा)
+            .Profile-name1 {
+                color: variables.$heading-icons; // #CCD6F6 (सटीक हाई-कॉन्ट्रास्ट रंग)
+            }
+
+            // कोष्टा: मंगल की अदम्य इच्छाशक्ति और लीडरशिप
             .Profile-name2 {
-                color: orange;
-
+                color: variables.$color-primary; // #FF8C00
             }
         }
 
+        // डिस्क्रिप्शन: प्रोफेशनल्स के लिए सटीक ग्रे टोन
         .profile-discription {
-            font-size: 25px;
+            font-size: 22px;
+            color: variables.$body-text; // #8892B0
+            font-family: variables.$font-body;
+            line-height: 1.5;
         }
 
+        // 🚀 बटन्स का कॉस्मिक और सिमेट्रिकल अलाइनमेंट
         .btn-container {
             margin: 15px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
 
+            // पहला बटन: GitHub Repos (शनि का गहरा होल्ड और बुध का बॉर्डर)
             .btn {
-                padding: 20px;
-                background-color: darkblue;
-                margin: 10px;
-                // border-radius: 25px;
-                border-bottom-right-radius: 25px;
-                border-top-left-radius: 25px;
-
-                color: white;
+                padding: 12px 28px;
+                background-color: variables.$card-color; // #112240
+                color: variables.$color-secondary; // #10B981 (बुध की तीव्र गति)
                 text-decoration: none;
-                border: 2px solid darkblue;
+                border: 2px solid variables.$color-secondary;
                 cursor: pointer;
-                font-size: 15px;
-                transition: background-color 0.6s ease, border-color 1.2s ease, color 1.5s ease;
+                font-size: 16px;
+                font-weight: 600;
+                border-bottom-right-radius: 20px;
+                border-top-left-radius: 20px;
+                transition: all 0.4s ease-in-out;
+
                 &:hover {
-                    background-color: orange;
-                    border: 2px solid orange;
+                    background-color: variables.$color-primary; // होवर पर मंगल का टेकओवर
+                    border-color: variables.$color-primary;
                     color: variables.$main-background;
-                    font-weight: bold;
+                    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
                 }
             }
 
+            // दूसरा बटन: Training Channel (श्वेत और सौम्य संतुलन)
             .btn-white {
-                background-color: white;
-                color: darkblue;
+                background-color: variables.$heading-icons; // #CCD6F6
+                color: variables.$main-background; // #0A192F
+                border: 2px solid variables.$heading-icons;
                 border-bottom-right-radius: 0px;
-                border-bottom-left-radius: 25px;
-                border-top-right-radius: 25px;
+                border-bottom-left-radius: 20px;
+                border-top-right-radius: 20px;
                 border-top-left-radius: 0px;
 
+                &:hover {
+                    background-color: transparent;
+                    color: variables.$heading-icons;
+                    border-color: variables.$heading-icons;
+                    box-shadow: 0 0 15px rgba(204, 214, 246, 0.2);
+                }
             }
-
         }
-
     }
 
+    // प्रोफाइल फोटो: बुध की 555 ग्लोइंग पावर
     .photo {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
-        margin: 20px;
 
         img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
             border-radius: 50%;
-            box-shadow: 0px 15px 15px variables.$success-status;
+            border: 3px solid variables.$color-secondary; // चेहरे पर बुध का ओजस
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5); // 55555+ एनर्जी वाइब्स
+            transition: transform 0.5s ease;
+
+            &:hover {
+                transform: scale(1.05); // सूक्ष्म और प्रीमियम एनीमेशन
+            }
         }
     }
 }

@@ -1,38 +1,68 @@
 @use "../abstracts/variables";
 
-
 .footer-container {
-    height: 50vh;
-    background-color: rgb(6, 19, 61);
+    min-height: 25vh; // 50vh से घटाकर संतुलित किया ताकि अनचाहा स्पेस न दिखे
+    background-color: #06133d; // आपके ओरिजिनल शेड को बनाए रखा (शनि का गहरा सागर)
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: variables.$color-primary;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(16, 185, 129, 0.15); // ऊपर से एक सुंदर बुध की हरी विभाजन रेखा
+    box-sizing: border-box;
 
-    span {
-        color: variables.$color-primary;
+    .version-tag {
+        color: variables.$color-primary; // #FF8C00 (मंगल की नारंगी शक्ति)
+        font-family: variables.$font-body;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        opacity: 0.85;
     }
 
-    .footer-container h3 {
-        color: antiquewhite;
-        margin: 20px;
-        color: variables.$color-primary;
+    // 🚨 नेस्टिंग सेलेक्टर का महा-सुधार
+    .footer-text {
+        color: variables.$heading-icons; // #CCD6F6 (सॉफ्ट ऑफ-व्हाइट ताकि पढ़ने में आसानी हो)
+        font-family: variables.$font-body;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap; // मोबाइल पर टेक्स्ट नीचे की लाइन में सुरक्षित शिफ्ट होगा
+        justify-content: center;
     }
 
-    a {
+    // 🚀 लॉगिन बटन का प्रीमियम और कॉस्मिक सुधार
+    .footer-login-btn {
         text-decoration: none;
-        color: variables.$color-primary;
-        padding: 10px;
+        color: variables.$color-secondary !important; // #10B981 (बुध का 555 हरा रंग)
+        font-weight: bold;
+        padding: 6px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+        background: rgba(16, 185, 129, 0.05); // हल्का पारदर्शी हरा बेस
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+        &:hover {
+            background: variables.$color-secondary;
+            color: #06133d !important; // होवर पर बैकग्राउंड गहरे नीले में बदलेगा
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); // 55555+ एनर्जी ग्लो
+            transform: translateY(-2px);
+        }
+    }
+}
 
-        /* From https://css.glass */
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(4.2px);
-        -webkit-backdrop-filter: blur(4.2px);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-
+// 📱 मोबाइल और टैबलेट के लिए मीडिया क्वेरी
+@media (max-width: 768px) {
+    .footer-container {
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.8;
+            flex-direction: column; // मोबाइल पर कतारबद्ध (vertical) हो जाएगा
+            gap: 15px;
+        }
     }
 }

@@ -1,64 +1,94 @@
 @use "../../abstracts/variables";
 
-
-
 .verified-proof-container {
-    padding: 50px 20px;
-    text-align: center;
+    padding: 60px 40px;
+    background-color: variables.$main-background;
 
     .home-heading {
         text-align: center;
         font-size: 45px;
-        padding: 40px;
+        font-family: variables.$font-heading; // 'Plus Jakarta Sans'
+        font-weight: 800;
+        color: variables.$heading-icons; // #CCD6F6
+        padding-bottom: 20px;
     }
 
     .proof-grid {
         display: grid;
+        // रिस्पॉन्सिव ग्रिड: यह छोटे और बड़े स्क्रीन्स पर बिना लेआउट हिलाए बेहतरीन काम करेगा
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+        gap: 30px;
         margin-top: 30px;
 
         .proof-card {
-            background-color: variables.$card-color;
-            border-radius: 12px;
+            background-color: variables.$card-color; // #112240 (शनि की प्रामाणिकता)
+            border-radius: 16px;
             overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.08); // बुध देव की सूक्ष्म हरी बॉर्डर लाइन
             
-            /* Glitch aur stuttering ko bilkul khatam karne ke liye performance fix */
-            will-change: translate, opacity; 
+            /* परफॉर्मेंस ऑप्टिमाइज़ेशन */
+            will-change: transform, opacity; 
             backface-visibility: hidden;    
             
-            /* Scroll Animation Configuration */
+            /* स्क्रॉल एनीमेशन */
             animation: trans linear both;
             animation-timeline: view();
-            
-            /* RANGE FIXED: Isko bada kiya hai taaki element bohot dheere-dheere screen par aaye */
             animation-range: entry -10% cover 45%; 
             
-            /* Hover transition setup */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 
             &:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 4px 15px variables.$success-status;
+                transform: translateY(-8px);
+                // होवर पर आपके 555 हरी ऊर्जा का एक बेहद प्रीमियम सॉफ्ट ग्लो इफेक्ट दिखेगा
+                box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+                border-color: variables.$color-secondary; // होवर पर बॉर्डर हरी हो जाएगी
             }
 
             .img-wrapper {
                 width: 100%;
                 height: 200px;
+                overflow: hidden;
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            &:hover {
+                .img-wrapper img {
+                    transform: scale(1.05); // होवर करने पर इमेज हलकी सी ज़ूम होगी
                 }
             }
 
             .card-content {
-                padding: 15px;
+                padding: 20px;
+                text-align: left; // विवरण को हमेशा बाईं ओर से शुरू करें, यह पढ़ने में आसान होता है
 
-                h3 { margin-bottom: 8px; }
-                h4 { font-weight: bold; }
-                p { font-size: 14px; }
+                h3.orange-title { 
+                    margin-bottom: 6px; 
+                    font-size: 20px;
+                    font-family: variables.$font-heading;
+                    font-weight: 700;
+                    color: variables.$color-primary; // मंगल की नारंगी ऊर्जा (#FF8C00)
+                }
+
+                h4.sub-title { 
+                    font-size: 14px;
+                    font-family: variables.$font-body;
+                    font-weight: 600; 
+                    color: variables.$color-secondary; // सबहेडिंग में बुध का हरा रंग (#10B981)
+                    margin-bottom: 8px;
+                }
+
+                p.desc-text { 
+                    font-size: 15px; 
+                    font-family: variables.$font-body;
+                    color: variables.$body-text; // #8892B0 (साफ और स्पष्ट विवरण)
+                    line-height: 1.4;
+                }
             }
         }
     }

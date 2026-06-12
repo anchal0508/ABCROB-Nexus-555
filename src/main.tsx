@@ -10,6 +10,8 @@ import CollageHome from './sites/5-collage-projects/CollageHome.tsx';
 import ComponentsHome from './sites/6-electronics-components/ComponentsHome.tsx';
 import ClassHome from './sites/7-online-classes/ClassHome.tsx';
 import LogIn from './sites/LoginAndSignup.tsx';
+import Certificates from './sites/1-portfolio/certificates.tsx';
+import StudentDashboard from './sites/7-online-classes/StudentDashboard.tsx';
  
 
  
@@ -26,6 +28,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/components' element={< ComponentsHome/>}/>
           <Route path='/online-classes' element={< ClassHome/>}/>
           <Route path='/LoginAndSignup' element={< LogIn/>}/>
+          <Route path='/portfolio-certificates' element={< Certificates/>}/>
+          <Route path='/student-dashboard' element={< StudentDashboard/>}/>
         </Route>
       </Routes>
     </BrowserRouter >

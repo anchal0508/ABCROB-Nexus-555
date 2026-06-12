@@ -1,28 +1,194 @@
 // Professional, educational layout
-@use "../abstracts/variables" as variable;
 
 
-.classHeader-page {
-    .hero {
-        display: grid;
-        grid-template-columns: 50% auto;
-        padding: 1.25rem;
-        justify-content: center;
-        align-items: center;
+@use "../abstracts/variables";
 
-        h1 {
-            font-size: 35px;
+.dashboard-container {
+    min-height: 100vh;
+    background-color: variables.$main-background; // #0A192F (शनि का गहरा साम्राज्य)
+    padding: 120px 40px 60px 40px; // नैवबार के नीचे सुरक्षित स्पेसिंग
+    color: variables.$body-text;
+    box-sizing: border-box;
+    font-family: variables.$font-body;
+
+    .dash-header {
+        margin-bottom: 40px;
+        text-align: left;
+
+        .dash-title {
+            font-size: 38px;
+            font-family: variables.$font-heading; // 'Plus Jakarta Sans'
+            font-weight: 800;
+            color: variables.$heading-icons; // #CCD6F6 (पूरी तरह चमकदार)
+            letter-spacing: -0.01em;
+
+            .orange {
+                color: variables.$color-primary; // #FF8C00 (मंगल की नारंगी शक्ति)
+            }
         }
 
-        .image {
-            width: 200px;
-            img {
-                width: 100%;
-                
-                
+        .dash-subtitle {
+            font-size: 16px;
+            color: variables.$body-text;
+            margin-top: 8px;
+        }
+    }
 
+    // 📊 स्टैट्स ग्रिड: रिस्पॉन्सिव और कंसिस्टेंट
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+
+        .stat-card {
+            background-color: variables.$card-color; // #112240 (ठोस विजुअल डेप्थ)
+            border: 1px solid rgba(16, 185, 129, 0.1); // बुध देव की 15% पारदर्शी बॉर्डर
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                border-color: variables.$color-secondary; // होवर पर 555 हरा बॉर्डर एक्टिव
+                box-shadow: 0 15px 30px rgba(16, 185, 129, 0.15);
+            }
+
+            h4 {
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: variables.$body-text;
+                margin: 0 0 15px 0;
+            }
+
+            .stat-number {
+                font-size: 36px;
+                font-family: variables.$font-heading;
+                font-weight: 800;
+                color: variables.$heading-icons;
+                margin: 0 0 5px 0;
+
+                &.orange { color: variables.$color-primary; }
+                &.neon-green { color: variables.$color-secondary; } // 55555+ हरा
+            }
+
+            .stat-label {
+                font-size: 13px;
+                color: rgba(136, 146, 176, 0.7);
             }
         }
     }
 
+    // 📝 डेटा तालिका डिज़ाइन (एंटरप्राइज-ग्रेड यूआई)
+    .matrix-table-wrapper {
+        background-color: variables.$card-color;
+        border: 1px solid rgba(16, 185, 129, 0.08);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+        .table-heading {
+            font-size: 22px;
+            font-family: variables.$font-heading;
+            color: variables.$heading-icons;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto; // मोबाइल स्क्रीन पर टेबल टूटने की जगह अंदर स्क्रॉल होगी
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+
+            th {
+                padding: 16px;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+                color: variables.$heading-icons;
+                font-weight: 600;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            td {
+                padding: 18px 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                font-size: 15px;
+            }
+
+            .table-row {
+                transition: background-color 0.3s ease;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.02); // कड़क और सूक्ष्म होवर इफ़ेक्ट
+                }
+            }
+
+            .course-title {
+                color: variables.$heading-icons;
+                font-weight: 600;
+            }
+
+            .course-students {
+                font-weight: bold;
+                color: variables.$body-text;
+            }
+
+            // 🚀 लाइव और अपकमिंग के लिए सटीक बैज
+            .status-badge {
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+
+                &.live { background: rgba(16, 185, 129, 0.1); color: variables.$color-secondary; }
+                &.upcoming { background: rgba(255, 140, 0, 0.1); color: variables.$color-primary; }
+                &.completed { background: rgba(204, 214, 246, 0.1); color: variables.$heading-icons; }
+            }
+
+            // 📈 लाइव प्रोग्रेस बार
+            .progress-bar-container {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                min-width: 150px;
+
+                .progress-bar-fill {
+                    height: 6px;
+                    background-color: variables.$color-secondary; // बुध की प्रोग्रेस लाइन
+                    border-radius: 4px;
+                    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+                }
+
+                .progress-text {
+                    font-size: 12px;
+                    color: variables.$body-text;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+// 📱 मोबाइल और टैबलेट रिस्पॉन्सिव मीडिया क्वेरी
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 100px 20px 40px 20px;
+
+        .dash-header .dash-title {
+            font-size: 28px;
+        }
+
+        .matrix-table-wrapper {
+            padding: 15px;
+        }
+    }
 }
