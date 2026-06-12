@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
     const navigate = useNavigate();
     const location = useLocation();
+    
     // 🚀 मोबाइल मेनू को ऑन/ऑफ करने के लिए केवल एक स्टेट वेरिएबल
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -13,8 +14,6 @@ function Header() {
         { label: "Classes", path: "/online-classes" },
         { label: "Download Resume", path: "/downloadCV" }
     ];
-
-     
 
     // 1. Current Active Path Evaluator (Astro-Numerology Dynamic Matrix)
     function getCurrentSelection() {
@@ -37,21 +36,17 @@ function Header() {
         return '/';
     }
 
-    // 2. Zero-Jerk LightSpeed Navigation Controller
-    function navigateToPage(event) {
+    // 2. Zero-Jerk LightSpeed Navigation Controller (FIXED TYPE AND SCOPE BINDING)
+    function navigateToPage(event: React.ChangeEvent<HTMLSelectElement>) {
+        // Safe variable extraction to prevent race condition during DOM re-renders
         const targetPath = event.target.value;
 
         // Verifies that the path is active and routes using React Router navigate parameter
         if (targetPath) {
             navigate(targetPath);
-
-            // Safeguard to close layout overlay if menu is toggled
-            if (typeof setIsMenuOpen === 'function') {
-                setIsMenuOpen(false);
-            }
+            setIsMenuOpen(false); // Direct execution without nested typeof fallback
         }
     }
-
 
     return (
         /* 🚨 पैरेंट कंटेनर में केवल क्लास जुड़ेगी, स्ट्रक्चर बिल्कुल वही रहेगा */
