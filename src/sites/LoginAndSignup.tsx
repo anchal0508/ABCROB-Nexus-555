@@ -57,10 +57,12 @@ const LogIn: React.FC = () => {
         try {
             const response = await API.post('/users/addUser', newUser);
             if (response.status === 201) {
-                navigate('/online-classes');
+                setMessage('Registration Successful! Please Login.');
+                setIsLogin(true);
             }
         } catch (error: any) {
-            setMessage(error.response.data.message || "Unable to Register User");
+            const errorMessage = error.response?.data?.message || error.message || "Network Error or Unable to Register";
+            setMessage(errorMessage);
         } finally {
             setIsLoading(false);
         }
