@@ -1,5 +1,6 @@
 // <!-- Home (Hero section, summary) -->
 
+import BlockDiagram from "./components/BlockDiagram";
 import Glimpse from "./components/Glimps";
 import Introduction from "./components/Introduction";
 import Projects from "./components/Projects";
@@ -14,7 +15,7 @@ function PortfolioHome() {
   return (
     <div className="portfolio-home">
       <Introduction />
-
+    <BlockDiagram />
       <ScoreBoard />
       <Transformation />
       <Glimpse />
