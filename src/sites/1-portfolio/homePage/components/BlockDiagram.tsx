@@ -6,6 +6,7 @@ const handleNodeClick = (event: any, node: any) => {
   if (node.data?.url) {
     window.open(node.data.url, '_blank');
   }
+  event;
 };
 
 // Architecture Coordinates Matrix
