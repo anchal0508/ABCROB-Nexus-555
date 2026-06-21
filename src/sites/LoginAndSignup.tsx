@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import API from '../axiosConfig';
-import { useNavigate } from 'react-router-dom';
 
 interface SignUpDetail {
     name: string;
