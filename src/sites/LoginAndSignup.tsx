@@ -9,12 +9,17 @@ interface SignUpDetail {
     password: string;
     confirmPass: string;
 }
+interface LoginDetails {
+    email: string;
+    password: string;
+}
 
 const LogIn: React.FC = () => {
 
     const [isLogin, setIsLogin] = useState<boolean>(true);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
+    const [successMessage, setSuccessMessage] = useState<string>('');
     const [clickCount, setClickCount] = useState<number>(0);
 
     const [signup, setSignUp] = useState<SignUpDetail>({
@@ -25,12 +30,23 @@ const LogIn: React.FC = () => {
         password: '',
         confirmPass: ''
     });
+    const [loginForm, setLoginForm] = useState<LoginDetails>({
+        email: '',
+        password: '',
+    });
 
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setSignUp((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+    const handleChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setLoginForm((prev) => ({
             ...prev,
             [name]: value
         }));
@@ -56,6 +72,7 @@ const LogIn: React.FC = () => {
             const response = await API.post('/users/addUser', newUser);
             if (response.status === 201) {
                 setMessage('Registration Successful! Please Login.');
+                setSuccessMessage('Registration Successful! Please Login.');
                 setIsLogin(true);
             }
         } catch (error: any) {
@@ -92,14 +109,18 @@ const LogIn: React.FC = () => {
                 <div className="msg">
                     {isLogin ? <h2>Welcome Back</h2> : <><h2>Join Us</h2><h2>Today</h2></>}
 
-                    {message ?
-                        (
-                            <span className="error-message-text">{message}</span>
+                    {message ? (
+                        successMessage ?
+                            (
+                                <span className="success-message-text" > {successMessage}</span>
+                            ) : (
 
-                        ) : (
-                            <span>{isLogin ? '>> Be limitless <<' : "Let's Start with 555-Transformation Journey"}</span>
-                        )
-                    }
+                                <span className="error-message-text">{message}</span>
+                            )
+
+                    ) : (
+                        <span>{isLogin ? '>> Be limitless <<' : "Let's Start with 555-Transformation Journey"}</span>
+                    )}
                     <div className="links">
                         {isLogin ? (
                             <>
@@ -113,15 +134,41 @@ const LogIn: React.FC = () => {
                     </div>
                 </div>
 
-                {/* LOGIN FORM */}
+
+
+                {/* =================================================== LOGIN FORM =================================================== */}
+
+
+
                 <form className={`login-form ${isLogin ? 'login-active' : 'form-hidden'} ${clickCount === 0 ? 'first-load' : ''}`}>
                     <h1>LogIn</h1>
-                    <label>Email <input type="email" placeholder=" : 555@xyz.com" /></label>
-                    <label>Password <input type="password" placeholder=" : Password" /></label>
+                    <label>Email
+                        <input
+                            type="email"
+                            placeholder=" : 555@xyz.com"
+                            required
+                            value={loginForm.email}
+                            onChange={handleChangeLogin}
+                            id="email"
+                            name="email"
+
+                        />
+                    </label>
+                    <label>Password
+                        <input
+                            type="password"
+                            placeholder=" : Password"
+                            required
+                            name='password'
+                            id='password'
+                            value={loginForm.password}
+                            onChange={handleChangeLogin}
+
+                        /></label>
                     <button type="submit" className="primary-btn">LogIn</button>
                 </form>
 
-                {/* SIGNUP FORM: 🚨 महा-सुधार: सब-ग्रिड के साथ रेंडर होगा */}
+                {/* =================================================== SIGNUP FORM =================================================== */}
                 <form className={`signup-form ${!isLogin ? 'signup-active' : 'form-hidden'}`} onSubmit={handleSignup}>
                     <h1>SignUp</h1>
 
@@ -210,8 +257,8 @@ const LogIn: React.FC = () => {
 
                 {/* SLIDER */}
                 <div className={`slider ${sliderClass}`}></div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 
