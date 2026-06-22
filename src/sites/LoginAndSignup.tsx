@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import API from '../axiosConfig';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 interface SignUpDetail {
     name: string;
@@ -57,23 +58,37 @@ const LogIn: React.FC = () => {
 
     // ---------------------------------- LogIn Form Handling ----------------------------------    
 
-    const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
+        const { login } = useAuth(); // 🌟 हुक से लॉगिन फंक्शन को यहाँ निकालें
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => { // 🌟 TypeScript टाइप सुधारा गया
         e.preventDefault();
         setMessage('');
         setIsLoading(true);
+
+        if (!loginForm.email || !loginForm.password) {
+            setMessage('Email and password are required');
+            setIsLoading(false); // लोड स्टेट बंद करना ज़रूरी है
+            return;
+        }
 
         const loginInfo = {
             email: loginForm.email,
             password: loginForm.password
         };
 
-        if (!loginForm.email || !loginForm.password) {
-            setMessage('Email and password is required');
-            return;
-        }
         try {
             const response = await API.post('/users/login', loginInfo);
-            if (response.status === 200) {
+            
+            if (response.status === 200 && response.data.success) {
+                // 🌟 महा-सुधार: बैकएंड से आए यूजर डेटा को ग्लोबल स्टेट में सेट किया
+                login(response.data.data.user); 
+                
+                // फॉर्म को नेविगेट करने से पहले रीसेट कर देते हैं
+                if (e.target && typeof (e.target as any).reset === 'function') {
+                    (e.target as any).reset();
+                }
+
+                // अब सुरक्षित रूप से नेविगेट करें
                 navigate('/online-classes');
             }
         } catch (error: any) {
@@ -81,9 +96,9 @@ const LogIn: React.FC = () => {
             setMessage(errorMessage);
         } finally {
             setIsLoading(false);
-            e.target.reset();
         }
-    }
+    };
+
 
 
     // ---------------------------------- SignUp Form Handling ----------------------------------
