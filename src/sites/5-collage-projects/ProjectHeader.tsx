@@ -1,5 +1,5 @@
  
-import SuitHeader from '../1-portfolio/homePage/components/Header';
+import SuitHeader from '../1-portfolio/homePage/components/Navbar';
 
 function ProjectHeader() {
 

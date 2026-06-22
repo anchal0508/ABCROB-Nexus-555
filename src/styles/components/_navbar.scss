@@ -1,1 +1,311 @@
-// Responsive multi-tenant headers
+@use 'sass:map';
+@use "../abstracts/variables" as variable;
+
+h1 {
+    color: variable.$heading-icons;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+p {
+    line-height: 1.6;
+    font-family: variable.$font-body;
+}
+
+.orange {
+    color: variable.$color-primary;
+}
+
+// 🌟 नैवबार कंटेनर - डेस्कटॉप लेआउट पूरी तरह अनछुआ और 100% सुरक्षित
+.header-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    font-family: variable.$font-body;
+    z-index: 9999;
+    box-sizing: border-box;
+
+    background: rgba(10, 25, 47, 0.75);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    .logo {
+        font-size: 28px;
+        font-family: variable.$font-heading;
+        font-weight: 800;
+        color: variable.$heading-icons;
+        letter-spacing: 0.5px;
+        z-index: 10001; 
+
+        .logo-555 {
+            color: variable.$color-primary;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
+        }
+    }
+
+    .list-header {
+        display: flex;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+
+        .nav-link {
+            text-decoration: none;
+            color: variable.$body-text;
+            transition: color 0.3s ease;
+        }
+
+        .header-list-items {
+            list-style-type: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            &:hover {
+                color: variable.$color-secondary;
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    .side-header {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .login-btn {
+            text-decoration: none;
+            color: variable.$heading-icons;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                color: variable.$color-secondary;
+            }
+        }
+
+        // 🌟 नया प्रोफाइल बैज स्टाइल - थीम के साथ 100% इंटीग्रेटेड
+        .user-profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px 4px 6px;
+            border-radius: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(16, 185, 129, 0.08);
+                border-color: variable.$color-secondary;
+            }
+
+            .user-avatar {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 1px solid variable.$heading-icons;
+                background: variable.$card-color;
+            }
+
+            .user-name {
+                font-size: 14px;
+                font-weight: 600;
+                color: variable.$heading-icons;
+                max-width: 100px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            // प्यारा और छोटा लॉगआउट बटन
+            .logout-compact-btn {
+                background: rgba(255, 77, 77, 0.2);
+                color: #ff4d4d;
+                border: 1px solid rgba(255, 77, 77, 0.4);
+                padding: 2px 8px;
+                font-size: 11px;
+                font-weight: 700;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background: #ff4d4d;
+                    color: #fff;
+                    box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+                }
+            }
+        }
+
+        select {
+            background-color: variable.$card-color;
+            color: variable.$heading-icons;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: variable.$color-secondary;
+                box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+            }
+        }
+    }
+
+    // 🍔 हैमबर्गर बटन (डेस्कटॉप पर छिपा रहेगा)
+    .mobile-hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10001;
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background-color: variable.$heading-icons;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+    }
+}
+
+// 📱 मोबाइल और टैबलेट रिस्पॉन्सिव मीडिया क्वेरी (मैक्स विड्थ: 968px)
+@media (max-width: 968px) {
+    .header-container {
+        padding: 15px 25px;
+
+        .mobile-hamburger {
+            display: flex; 
+        }
+
+        &.mobile-nav-open {
+            .mobile-hamburger {
+                .line:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: variable.$color-primary; }
+                .line:nth-child(2) { opacity: 0; }
+                .line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: variable.$color-primary; }
+            }
+        }
+
+        .list-header {
+            position: fixed;
+            top: 0;
+            right: -100%; 
+            width: 75%;
+            height: 100vh;
+            background: rgba(10, 25, 47, 0.98); 
+            backdrop-filter: blur(15px);
+            border-left: 1px solid rgba(16, 185, 129, 0.15);
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 110px 30px 40px 40px;
+            gap: 15px;
+            overflow-y: auto;
+            
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+
+            .nav-link {
+                width: 100%;
+            }
+
+            .header-list-items {
+                font-size: 18px;
+                padding: 12px 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+        }
+
+        .side-header {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 75%;
+            height: 100vh;
+            z-index: 10001; 
+            box-sizing: border-box;
+            pointer-events: none; 
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; 
+            align-items: flex-start;
+            padding: 40px 30px 60px 40px; 
+            gap: 20px;
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            .login-btn, select, .user-profile-badge {
+                pointer-events: auto;
+            }
+
+            .login-btn {
+                font-size: 18px;
+                padding: 0;
+                margin-top: 15px;
+            }
+
+            // 🌟 मोबाइल ड्रॉर के अंदर प्रोफाइल बैज की शानदार अलाइनमेंट
+            .user-profile-badge {
+                width: 90%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                padding: 8px 16px;
+                background: rgba(255, 255, 255, 0.03);
+
+                .user-name {
+                    font-size: 16px;
+                    max-width: 150px;
+                }
+
+                .logout-compact-btn {
+                    padding: 4px 12px;
+                    font-size: 13px;
+                }
+            }
+
+            select {
+                width: 90%;
+                padding: 12px;
+                font-size: 15px;
+                background-color: variable.$card-color;
+            }
+        }
+
+        &.mobile-nav-open {
+            .list-header {
+                right: 0;
+            }
+            .side-header {
+                right: 0;
+            }
+        }
+    }
+}

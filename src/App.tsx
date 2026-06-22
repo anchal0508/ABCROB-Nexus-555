@@ -1,25 +1,19 @@
- 
-
 import './styles/main.scss';
-import Header from './sites/1-portfolio/homePage/components/Header';
+import Navbar from './sites/1-portfolio/homePage/components/Navbar';
 import Footer from './sites/Footer';
 import { Outlet } from 'react-router-dom';
+import { AuthProvider } from './AuthContext';
 
-
-
- 
 function App() {
   return (
     <div className="base-MainContainer">
-      <Header />
-      <Outlet />
-      <Footer />z
+      <AuthProvider>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </AuthProvider> 
     </div>
   );
 }
-
-
-
-
 
 export default App;

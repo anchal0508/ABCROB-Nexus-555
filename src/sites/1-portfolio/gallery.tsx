@@ -1,7 +1,7 @@
 // <!-- College workshops & photos layout -->
 
 import Footer from "../Footer";
-import Header from "./homePage/components/Header";
+import Header from "./homePage/components/Navbar";
 import ScoreBoard from "./homePage/components/ScoreBoard";
 
 function Galary() {
