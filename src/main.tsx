@@ -12,6 +12,7 @@ import ClassHome from './sites/7-online-classes/ClassHome.tsx';
 import LogIn from './sites/LoginAndSignup.tsx';
 import Certificates from './sites/1-portfolio/certificates.tsx';
 import StudentDashboard from './sites/7-online-classes/StudentDashboard.tsx';
+import ProtectedRoutes from './ProtectedRoutes.tsx';
  
 
  
@@ -26,10 +27,13 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/beauty' element={<BeautyHome />}/>
           <Route path='/projects' element={< CollageHome/>}/>
           <Route path='/components' element={< ComponentsHome/>}/>
-          <Route path='/online-classes' element={< ClassHome/>}/>
           <Route path='/LoginAndSignup' element={< LogIn/>}/>
           <Route path='/portfolio-certificates' element={< Certificates/>}/>
+<Route element={<ProtectedRoutes />}>
+          <Route path='/online-classes' element={< ClassHome/>}/>
           <Route path='/student-dashboard' element={< StudentDashboard/>}/>
+</Route>
+
         </Route>
       </Routes>
     </BrowserRouter >

@@ -36,6 +36,16 @@ function Navbar() {
         }
     }
 
+    const handleLogoutClick = async () => {
+        try {
+            await logout(); 
+            setIsMenuOpen(false); 
+            navigate('/LoginAndSignup');
+        } catch (error) {
+            console.error("Navigation after logout failed", error);
+        }
+    };
+
     return (
         <header className={`header-container ${isMenuOpen ? 'mobile-nav-open' : ''}`}>
             <span className="logo">
@@ -63,12 +73,12 @@ function Navbar() {
                 {user ? (
                     <div className="user-profile-badge">
                         <img 
-                            src={user.profilePhoto || 'https://dicebear.com' + user.name} 
+                            src={user.profilePhoto || `https://dicebear.com{user.name}`} 
                             alt="Profile" 
                             className="user-avatar"
                         />
                         <span className="user-name">{user.name}</span>
-                        <button onClick={logout} className="logout-compact-btn" title="Logout">
+                        <button onClick={handleLogoutClick} className="logout-compact-btn" title="Logout">
                             Logout
                         </button>
                     </div>

@@ -58,16 +58,16 @@ const LogIn: React.FC = () => {
 
     // ---------------------------------- LogIn Form Handling ----------------------------------    
 
-        const { login } = useAuth(); // 🌟 हुक से लॉगिन फंक्शन को यहाँ निकालें
+        const { login } = useAuth();
 
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => { // 🌟 TypeScript टाइप सुधारा गया
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setMessage('');
         setIsLoading(true);
 
         if (!loginForm.email || !loginForm.password) {
             setMessage('Email and password are required');
-            setIsLoading(false); // लोड स्टेट बंद करना ज़रूरी है
+            setIsLoading(false); 
             return;
         }
 
@@ -80,16 +80,13 @@ const LogIn: React.FC = () => {
             const response = await API.post('/users/login', loginInfo);
             
             if (response.status === 200 && response.data.success) {
-                // 🌟 महा-सुधार: बैकएंड से आए यूजर डेटा को ग्लोबल स्टेट में सेट किया
                 login(response.data.data.user); 
                 
-                // फॉर्म को नेविगेट करने से पहले रीसेट कर देते हैं
                 if (e.target && typeof (e.target as any).reset === 'function') {
                     (e.target as any).reset();
                 }
 
-                // अब सुरक्षित रूप से नेविगेट करें
-                navigate('/online-classes');
+                navigate('/student-dashboard');
             }
         } catch (error: any) {
             const errorMessage = error.response?.data?.message || error.message || "Network Error or Unable to Login";
