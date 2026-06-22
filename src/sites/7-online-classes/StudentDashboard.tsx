@@ -1,8 +1,5 @@
-
-// <!-- // Video player area, notes section, live links -->
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../AuthContext';
 
 interface EnrolledCourse {
     id: number;
@@ -13,36 +10,56 @@ interface EnrolledCourse {
     labStatus: 'Pending' | 'Completed' | 'In-Progress';
 }
 
+interface StudentProfileState {
+    name: string;
+    batch: string;
+    enrolledCount: number;
+}
+
 const StudentDashboard: React.FC = () => {
-    // 🚀 बुध की 555 गति: यह डेटा भविष्य में Supabase से सीधा लाइव सिंक होगा
-    const [studentProfile] = useState({
-        name: "Priyash", // स्क्रीनशॉट के अनुसार उदाहरण के लिए
+    const { user, loading: authLoading } = useAuth();
+
+    const [studentProfile, setStudentProfile] = useState<StudentProfileState>({
+        name: "Student",
         batch: "Nexus-555 Tech Matrix",
-        enrolledCount: 2
+        enrolledCount: 0
     });
 
     const [myCourses] = useState<EnrolledCourse[]>([
-        { 
-            id: 1, 
-            title: "Embedded Systems & IoT Core Architecture", 
-            instructor: "Anchal Koshta", 
-            nextClass: "Today at 04:00 PM (ESP8266 WiFi Logic)", 
-            progress: 65, 
-            labStatus: 'In-Progress' 
+        {
+            id: 1,
+            title: "Embedded Systems & IoT Core Architecture",
+            instructor: "Anchal Koshta",
+            nextClass: "Today at 04:00 PM (ESP8266 WiFi Logic)",
+            progress: 65,
+            labStatus: 'In-Progress'
         },
-        { 
-            id: 2, 
-            title: "Advanced Web Microservices & Excel VBA Automation", 
-            instructor: "Anchal Koshta", 
-            nextClass: "Tomorrow at 11:00 AM (API Security & Macros)", 
-            progress: 35, 
-            labStatus: 'Pending' 
+        {
+            id: 2,
+            title: "Advanced Web Microservices & Excel VBA Automation",
+            instructor: "Anchal Koshta",
+            nextClass: "Tomorrow at 11:00 AM (API Security & Macros)",
+            progress: 35,
+            labStatus: 'Pending'
         }
     ]);
 
+    useEffect(() => {
+        if (user) {
+            setStudentProfile({
+                name: user.name || "Student",
+                batch: (user as any).batch || "Nexus-555 Tech Matrix",
+                enrolledCount: (user as any).enrolledCount ?? 2
+            });
+        }
+    }, [user]);
+
+    if (authLoading) {
+        return <div className="loading">Loading Real-Time Matrix Logs...</div>;
+    }
+
     return (
         <section className="student-dashboard">
-            {/* 🪐 वेलकम मैट्रिक्स हेडर */}
             <div className="welcome-banner">
                 <div className="welcome-text">
                     <h1>Welcome Back, <span className="orange">{studentProfile.name}</span></h1>
@@ -54,10 +71,7 @@ const StudentDashboard: React.FC = () => {
                 </div>
             </div>
 
-            {/* 📊 स्टूडेंट कोर ग्रिड (शनि का विजुअल अलाइनमेंट - 100% कंट्रास्ट टिक) */}
             <div className="student-grid">
-                
-                {/* बायाँ हिस्सा: इन-प्रोग्रेस कोर्सेज */}
                 <div className="courses-section">
                     <h2>My Learning Pipelines</h2>
                     <div className="course-list-wrapper">
@@ -70,8 +84,7 @@ const StudentDashboard: React.FC = () => {
                                     </span>
                                 </div>
                                 <h3 className="course-headline">{course.title}</h3>
-                                
-                                {/* लाइव प्रोग्रेस मीटर */}
+
                                 <div className="progress-wrapper">
                                     <div className="progress-metrics">
                                         <span>Syllabus Covered</span>
@@ -93,7 +106,6 @@ const StudentDashboard: React.FC = () => {
                     </div>
                 </div>
 
-                {/* दायाँ हिस्सा: लाइव लैब मेश और क्विक लिंक्स */}
                 <div className="sidebar-section">
                     <div className="sidebar-card">
                         <h3>Hardware & Logic Hub</h3>
@@ -130,7 +142,6 @@ const StudentDashboard: React.FC = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     );
