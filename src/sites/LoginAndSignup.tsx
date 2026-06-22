@@ -5,7 +5,7 @@ interface SignUpDetail {
     name: string;
     email: string;
     phone: string;
-    DOB: string;
+    dob: string;
     password: string;
     confirmPass: string;
 }
@@ -21,7 +21,7 @@ const LogIn: React.FC = () => {
         name: '',
         email: '',
         phone: '',
-        DOB: '',
+        dob: '',
         password: '',
         confirmPass: ''
     });
@@ -48,7 +48,7 @@ const LogIn: React.FC = () => {
             name: signup.name,
             email: signup.email,
             phone: signup.phone,
-            DOB: signup.DOB,
+            dob: signup.dob,
             password: signup.password,
 
         }
@@ -163,13 +163,13 @@ const LogIn: React.FC = () => {
                             />
                         </label>
 
-                        <label htmlFor="DOB">Date of birth
+                        <label htmlFor="dob">Date of birth
                             <input
                                 type="date"
-                                name="DOB"
-                                id="DOB"
+                                name="dob"
+                                id="dob"
                                 required
-                                value={signup.DOB}
+                                value={signup.dob}
                                 onChange={handleChange}
                             />
                         </label>
