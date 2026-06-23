@@ -55,7 +55,7 @@ const StudentDashboard: React.FC = () => {
     }, [user]);
 
     if (authLoading) {
-        return <div className="loading">Loading Real-Time Matrix Logs...</div>;
+        return <h2 className="loading"><hr></hr>Loading Real-Time Matrix Logs...</h2>;
     }
 
     return (

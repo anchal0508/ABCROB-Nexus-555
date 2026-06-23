@@ -73,7 +73,7 @@ function Navbar() {
                 {user ? (
                     <div className="user-profile-badge">
                         <img 
-                            src={user.profilePhoto || `https://dicebear.com{user.name}`} 
+                            src={user.profilePhoto ||  `https://dicebear.com{encodeURIComponent(user.name || 'default')}`} 
                             alt="Profile" 
                             className="user-avatar"
                         />

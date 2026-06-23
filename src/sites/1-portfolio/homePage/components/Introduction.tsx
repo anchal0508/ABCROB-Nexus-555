@@ -22,7 +22,7 @@ function Introduction() {
                     <span className="Profile-name2">Koshta</span>
                 </div>
 
-                <span className="profile-discription">Founder of ABCROB Technologies | Backend Engineer | Automation Expert</span>
+                <span className="profile-discription">Founder of ABCROB PVT. LTD. | Backend Engineer | Automation Expert</span>
 
                 <p className="intro-summary">10+ years of technical leadership. From hardware precision in
                     <b className="orange"> Delhi</b> to high-scale backend logic. I don't just write code; I build systems that evolve.
